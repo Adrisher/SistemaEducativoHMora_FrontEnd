@@ -3,21 +3,14 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { MenulateralComponent } from './menulateral/menulateral.component';
-import {CargarScriptsService} from './cargar-scripts.service';
-import { RouterModule, Routes } from '@angular/router';
-import {HttpClientModule} from '@angular/common/http';
+import { CargarScriptsService} from './cargar-scripts.service';
+import { HttpClientModule} from '@angular/common/http';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginComponent } from './login/login.component';
 import { MatriculaComponent } from './matricula/matricula.component';
+import { AppRoutingModule } from './app-routing.module';
 
-const routes: Routes = [
-  {path: '', redirectTo: '', pathMatch: 'full' },
-  { path: 'login', component: LoginComponent },
-  { path: 'menulateral', component: MenulateralComponent},
-  { path: 'matricula', component:  MatriculaComponent }
-];
-export const app_routing = RouterModule.forRoot(routes);
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,7 +24,7 @@ export const app_routing = RouterModule.forRoot(routes);
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    RouterModule.forRoot(routes)
+    AppRoutingModule
   ],
   providers: [
     CargarScriptsService

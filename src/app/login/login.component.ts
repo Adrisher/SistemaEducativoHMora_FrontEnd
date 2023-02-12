@@ -9,6 +9,15 @@ import {CargarScriptsService} from '../cargar-scripts.service';
 })
 export class LoginComponent implements OnInit {
 
+  form: any = {
+    cedula: null,
+    contrasenia: null,
+  };
+
+  isLoggedIn = false;
+  isLoginFailed = false;
+
+
   constructor(private _CargarScripts:CargarScriptsService, private router: Router) { 
     _CargarScripts.funciones(["login"]);
   }
