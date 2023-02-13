@@ -1,0 +1,297 @@
+<head>
+    <meta charset="UTF-8">
+    <title>Matricula</title>
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,600&display=swap" rel="stylesheet">
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css'>
+</head>
+
+<body>
+    <header class="header">
+        <h1 class="header__title">Matriculación</h1>
+    </header>
+    <div class="content">
+        <div class="content__inner">
+            <div class="container">
+                <h2 class="content__title">Datos Personales</h2>
+            </div>
+            <div class="container2 overflow-hidden">
+                <div class="multisteps-form">
+                    <div class="row">
+                        <div class="col-12 col-lg-8 ml-auto mr-auto mb-4">
+                            <div class="multisteps-form__progress">
+                                <button class="multisteps-form__progress-btn js-active" type="button"
+                                    title="Representante">Representante</button>
+                                <button class="multisteps-form__progress-btn" type="button"
+                                    title="Estudiante">Estudiante</button>
+                                <button class="multisteps-form__progress-btn" type="button"
+                                    title="Order Info">Curso</button>
+                                <button class="multisteps-form__progress-btn" type="button" title="Curso"> Detalle
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 col-lg-8 m-auto">
+                            <form class="multisteps-form__form g-2 d-flex justify-content-center">
+                                <div class="multisteps-form__panel shadow p-4 rounded bg-white js-active"
+                                    data-animation="scaleIn">
+                                    <h3 class="multisteps-form__title">Datos Representante</h3>
+                                    <div class="multisteps-form__content">
+                                        <div class="form-row mt-4">
+                                            <div class="col-12 col-sm-6">
+                                                <label>Cédula</label>
+                                                <input class="multisteps-form__input form-control" type="text"
+                                                    placeholder="Cédula" />
+                                            </div>
+                                            <div class="col-12 col-sm-6 mt-4 mt-sm-0">
+                                                <label>Nombre</label>
+                                                <input class="multisteps-form__input form-control" type="text"
+                                                    placeholder="Nombre" />
+                                            </div>
+                                        </div>
+                                        <div class="form-row mt-4">
+                                            <div class="col-12 col-sm-6">
+                                                <label>Segundo Nombre</label>
+                                                <input class="multisteps-form__input form-control" type="text"
+                                                    placeholder="Segundo Nombre" />
+                                            </div>
+                                            <div class="col-12 col-sm-6 mt-4 mt-sm-0">
+                                                <label>Primer Apellido</label>
+                                                <input class="multisteps-form__input form-control" type="text"
+                                                    placeholder="Primer Apellido" />
+                                            </div>
+                                        </div>
+                                        <div class="form-row mt-4">
+                                            <div class="col-12 col-sm-6 mt-4 mt-sm-0">
+                                                <label>Segundo Apellido</label>
+                                                <input class="multisteps-form__input form-control" type="text"
+                                                    placeholder="Segundo Apellido" />
+                                            </div>
+                                            <div class="gender-box">
+                                                <h3>Género</h3>
+                                                <div class="gender-option">
+                                                    <div class="gender">
+                                                        <input type="radio" id="check-male" name="gender" checked />
+                                                        <label for="check-male">M</label>
+                                                    </div>
+                                                    <div class="gender">
+                                                        <input type="radio" id="check-female" name="gender" />
+                                                        <label for="check-female">F</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-row mt-4">
+                                            <div class="col-12 col-sm-6 mt-4 mt-sm-0">
+                                                <label>Fecha Nacimiento</label>
+                                                <input class="multisteps-form__input form-control" type="date"
+                                                    placeholder="Fecha Nacimiento" required />
+                                            </div>
+                                            <div class="col-12 col-sm-6 mt-4 mt-sm-0">
+                                                <label>Correo Electrónico</label>
+                                                <input class="multisteps-form__input form-control" type="email"
+                                                    placeholder="Correo Electrónico" />
+                                            </div>
+                                        </div>
+                                        <div class="form-row mt-4">
+                                            <div class="col-12 col-sm-6 mt-4 mt-sm-0">
+                                                <label>Dirección</label>
+                                                <input class="multisteps-form__input form-control" type="text"
+                                                    placeholder="Dirección" />
+                                            </div>
+                                            <div class="col-12 col-sm-6 mt-4 mt-sm-0">
+                                                <label>Ocupación</label>
+                                                <input class="multisteps-form__input form-control" type="text"
+                                                    placeholder="Ocupación" />
+                                            </div>
+                                        </div>
+                                        <div class="form-row mt-4">
+                                            <div class="col-12 col-sm-6 mt-4 mt-sm-0">
+                                                <label>Teléfono Contacto</label>
+                                                <input class="multisteps-form__input form-control" type="text"
+                                                    placeholder="Teléfono Contacto" />
+                                            </div>
+                                        </div>
+                                        <div class="button-row d-flex mt-4">
+                                            <button class="btn btn-success ml-auto" type="button"
+                                                title="Send">Guardar</button>
+                                            <button class="btn btn-primary ml-auto js-btn-next" type="button"
+                                                title="Next">Siguiente</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="multisteps-form__panel shadow p-4 rounded bg-white"
+                                    data-animation="scaleIn">
+                                    <h3 class="multisteps-form__title">Datos Estudiante</h3>
+                                    <div class="multisteps-form__content">
+                                        <div class="form-row mt-4">
+                                            <div class="col-12 col-sm-6">
+                                                <label>Cédula</label>
+                                                <input class="multisteps-form__input form-control" type="text"
+                                                    placeholder="Cédula" />
+                                            </div>
+                                            <div class="col-12 col-sm-6 mt-4 mt-sm-0">
+                                                <label>Nombre</label>
+                                                <input class="multisteps-form__input form-control" type="text"
+                                                    placeholder="Nombre" />
+                                            </div>
+                                        </div>
+                                        <div class="form-row mt-4">
+                                            <div class="col-12 col-sm-6">
+                                                <label>Segundo Nombre</label>
+                                                <input class="multisteps-form__input form-control" type="text"
+                                                    placeholder="Segundo Nombre" />
+                                            </div>
+                                            <div class="col-12 col-sm-6 mt-4 mt-sm-0">
+                                                <label>Primer Apellido</label>
+                                                <input class="multisteps-form__input form-control" type="text"
+                                                    placeholder="Primer Apellido" />
+                                            </div>
+                                        </div>
+                                        <div class="form-row mt-4">
+                                            <div class="col-12 col-sm-6 ">
+                                                <label>Segundo Apellido</label>
+                                                <input class="multisteps-form__input form-control" type="text"
+                                                    placeholder="Segundo Apellido" />
+                                            </div>
+                                            <div class="gender-box">
+                                                <h3>Género</h3>
+                                                <div class="gender-option">
+                                                    <div class="gender">
+                                                        <input type="radio" id="check-male" name="gender" checked />
+                                                        <label for="check-male">M</label>
+                                                    </div>
+                                                    <div class="gender">
+                                                        <input type="radio" id="check-female" name="gender" />
+                                                        <label for="check-female">F</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-row mt-4">
+                                            <div class="col-12 col-sm-6 mt-4 mt-sm-0">
+                                                <label>Fecha Nacimiento</label>
+                                                <input class="multisteps-form__input form-control" type="date"
+                                                    placeholder="Fecha Nacimiento" required />
+                                            </div>
+                                            <div class="col-12 col-sm-6 ">
+                                                <label>Correo Electrónico</label>
+                                                <input class="multisteps-form__input form-control" type="email"
+                                                    placeholder="Correo Electrónico" />
+                                            </div>
+                                        </div>
+                                        <div class="form-row mt-4">
+                                            <div class="col-12 col-sm-6 mt-4 mt-sm-0">
+                                                <label>Dirección</label>
+                                                <input class="multisteps-form__input form-control" type="text"
+                                                    placeholder="Dirección" />
+                                            </div>
+                                            <div class="col-12 col-sm-6 ">
+                                                <label>Ocupación</label>
+                                                <input class="multisteps-form__input form-control" type="text"
+                                                    placeholder="Ocupación" />
+                                            </div>
+                                        </div>
+                                        <div class="form-row mt-4">
+                                            <div class="col-12 col-sm-6 mt-4 mt-sm-0">
+                                                <label>Teléfono Contacto</label>
+                                                <input class="multisteps-form__input form-control" type="text"
+                                                    placeholder="Teléfono Contacto" />
+                                            </div>
+                                            <div class="col-12 col-sm-6">
+                                                <label>Contraseña</label>
+                                                <input class="multisteps-form__input form-control" type="password"
+                                                    placeholder="Contraseña" />
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="button-row d-flex mt-4 col-12">
+                                                <button class="btn btn-primary js-btn-prev" type="button"
+                                                    title="Prev">Atrás</button>
+                                                <button class="btn btn-success ml-auto" type="button"
+                                                    title="Send">Guardar</button>
+                                                <button class="btn btn-primary ml-auto js-btn-next" type="button"
+                                                    title="Next">Siguiente</button>
+
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="multisteps-form__panel shadow p-4 rounded bg-white"
+                                    data-animation="scaleIn">
+                                    <h3 class="multisteps-form__title">Datos Curso</h3>
+                                    <div class="multisteps-form__content">
+                                        <div class="form-row mt-4">
+                                            <div class="col-12 col-sm-6">
+                                                <label>Ciclo</label>
+                                                <!-- <input class="multisteps-form__input form-control" type="number"
+                                                    placeholder="1,2,3,4,5,6,7" /> -->
+                                                <label> Curso</label>
+                                                <select id="curso" class="form-control" name="curso">
+                                                    <option value="" disabled selected>Selecciona curso</option>
+                                                    <option value="PRIMERO">PRIMERO</option>
+                                                    <option value="SEGUNDO">SEGUNDO</option>
+                                                    <option value="TERCERO">TERCERO</option>
+                                                    <option value="CUARTO">CUARTO</option>
+                                                    <option value="QUINTO">QUINTO</option>
+                                                    <option value="SEXTO">SEXTO</option>
+                                                    <option value="SEPTIMO">SEPTIMO</option>
+                                                    <option value="OCTAVO">OCTAVO</option>
+                                                    <option value="NOVENO">NOVENO</option>
+                                                    <option value="DECIMO">DECIMO</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-12 col-sm-6 mt-4 mt-sm-0">
+                                                <label>Paralelo</label>
+                                                <select id="paralelo" class="form-control" name="paralelo">
+                                                    <option value="" disabled selected>Selecciona paralelo</option>
+                                                    <option value="A">A</option>
+                                                    <option value="B">B</option>
+                                                    <option value="C">C</option>
+                                                    <option value="D">D</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="button-row d-flex mt-4 col-12">
+                                                <button class="btn btn-primary js-btn-prev" type="button"
+                                                    title="Prev">Atrás</button>
+                                                <button class="btn btn-success ml-auto" type="button"
+                                                    title="Send">Guardar</button>
+                                                <button class="btn btn-primary ml-auto js-btn-next" type="button"
+                                                    title="Next">Siguiente</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="multisteps-form__panel shadow p-4 rounded bg-white"
+                                    data-animation="scaleIn">
+                                    <h3 class="multisteps-form__title">Detalle Matrícula</h3>
+                                    <div class="multisteps-form__content">
+                                        <div class="form-row mt-4">
+                                            <label>Observaciones</label>
+                                            <textarea class="multisteps-form__textarea form-control"
+                                                placeholder="Observaciones"></textarea>
+                                        </div>
+                                        <div class="button-row d-flex mt-4">
+                                            <button class="btn btn-primary js-btn-prev" type="button"
+                                                title="Prev">Atrás</button>
+                                            <button class="btn btn-success ml-auto" type="button"
+                                                title="Send">Guardar</button>
+                                        </div>
+                                    </div>
+                                    <button class="btn btn-success ml-auto" type="button" title="Send">Guardar</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="matricula.js"></script>
+
+</body>
+
