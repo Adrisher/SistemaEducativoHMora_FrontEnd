@@ -10,10 +10,10 @@ import { ProfesorComponent } from './profesor/profesor.component';
 const routes: Routes = [
   {path: 'dashboard', component: PagesComponent,
   children: [
-    {path: '', component: DashboardComponent},
-    {path: 'materia', component: MateriaComponent},
-    {path: 'matricula', component: MatriculaComponent},
-    {path: 'profesor', component: ProfesorComponent},
+    {path: '', component: DashboardComponent, data: {titulo:"Dashboard"}},
+    {path: 'materia', component: MateriaComponent, data: {titulo:"Materia"}},
+    {path: 'matricula', component: MatriculaComponent, data: {titulo:"Matricula"}},
+    {path: 'profesor', component: ProfesorComponent, data: {titulo:"Profesor"}},
 
 
     ]
