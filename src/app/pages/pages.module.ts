@@ -7,6 +7,11 @@ import { MatriculaComponent } from './matricula/matricula.component';
 import { PagesComponent } from './pages.component';
 import { RouterModule } from '@angular/router';
 import { SharedModule } from '../shared/shared.module';
+import { CursoComponent } from './curso/curso.component';
+import { EstudianteComponent } from './estudiante/estudiante.component';
+import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
+import { VerMatriculaComponent } from './matricula/ver-matricula/ver-matricula.component';
 
 
 @NgModule({
@@ -15,17 +20,23 @@ import { SharedModule } from '../shared/shared.module';
     ProfesorComponent,
     MateriaComponent,
     MatriculaComponent,
-    PagesComponent
+    PagesComponent,
+    CursoComponent,
+    EstudianteComponent,
+    VerMatriculaComponent
   ],
   imports: [
     CommonModule,
     RouterModule,
-    SharedModule
+    SharedModule,
+    FormsModule, 
+    ReactiveFormsModule
   ],
   exports: [
     DashboardComponent,
     ProfesorComponent,
     MateriaComponent,
+    EstudianteComponent,
     MatriculaComponent
   ]
 })

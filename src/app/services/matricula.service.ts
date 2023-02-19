@@ -1,35 +1,29 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Materia } from '../pages/materia/materia';
+import { Matricula } from '../pages/matricula/Matricula';
 
 @Injectable({
   providedIn: 'root'
 })
 export class MatriculaService {
+  private url: string = "http://localhost:8080/hmora/matricula";
+  
+  constructor(private httpClient: HttpClient) { }
 
-  private url: string = 'http://localhost:8080/api/materias/';
-
-  constructor( private http: HttpClient ) { }
-
-  get(): Observable<Materia[]> {
-      return this.http.get<Materia[]>(this.url + 'listar');
+  //listar matricula
+  public getAllMatricula(): Observable<any> {
+    return this.httpClient.get(this.url + "/lista_Matriculas");
   }
+  
+  // //Crear Matricula
+  // public saveMatricula(matricula: any): Observable<any> {
+  //   return this.httpClient.post(this.url + "/matricular", matricula);
+  // }
 
-  create(producto: Materia): Observable<Materia> {
-    return this.http.post<Materia>(this.url + 'guardar', producto);
-  }
+  
 
-  getOne(id: number): Observable<Materia> {
-    return this.http.get<Materia>(this.url + id);
-  }
-
-  update(materia: Materia): Observable<Materia> {
-    return this.http.put<Materia>(this.url + 'actualizar/' + materia.id_materia, materia);
-  }
-
-  delete(id: number): Observable<any> {
-    return this.http.delete<Materia>(this.url + "eliminar/"+ id);
-  }
-
+create(matricula: Matricula): Observable<Matricula> {
+  return this.httpClient.post<Matricula>(this.url + 'guardar', matricula);
+}
 }
