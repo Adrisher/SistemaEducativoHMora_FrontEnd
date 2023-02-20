@@ -9,6 +9,10 @@ import { NopageFoundComponent } from './nopage-found/nopage-found.component';
 import { PagesModule } from './pages/pages.module';
 
 import { HttpClientModule} from '@angular/common/http';
+
+import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
+
 import { RecargaDirective } from './directives/recarga.directive';
 
 @NgModule({
@@ -22,7 +26,9 @@ import { RecargaDirective } from './directives/recarga.directive';
     AuthModule,
     PagesModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -7,6 +7,10 @@ import { MatriculaComponent } from './matricula/matricula.component';
 import { PagesComponent } from './pages.component';
 import { RouterModule } from '@angular/router';
 import { SharedModule } from '../shared/shared.module';
+import { CursoComponent } from './curso/curso.component';
+import { EstudianteComponent } from './estudiante/estudiante.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { VerMatriculaComponent } from './matricula/ver-matricula/ver-matricula.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
@@ -16,19 +20,23 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ProfesorComponent,
     MateriaComponent,
     MatriculaComponent,
-    PagesComponent
+    PagesComponent,
+    CursoComponent,
+    EstudianteComponent,
+    VerMatriculaComponent
   ],
   imports: [
     CommonModule,
     RouterModule,
     SharedModule,
-    ReactiveFormsModule,
-    FormsModule
+    FormsModule, 
+    ReactiveFormsModule
   ],
   exports: [
     DashboardComponent,
     ProfesorComponent,
     MateriaComponent,
+    EstudianteComponent,
     MatriculaComponent
   ]
 })

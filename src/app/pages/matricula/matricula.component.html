@@ -41,43 +41,57 @@
                                             <div class="col-12 col-sm-6">
                                                 <label>Cédula</label>
                                                 <input class="multisteps-form__input form-control" type="text"
-                                                    placeholder="Cédula" />
+                                                    placeholder="Cédula" name="cedula" maxlength="10"
+                                                    [(ngModel)]="representante.cedula"
+                                                    onkeypress='return event.charCode >= 48 && event.charCode <= 57'
+                                                    required />
                                             </div>
                                             <div class="col-12 col-sm-6 mt-4 mt-sm-0">
                                                 <label>Nombre</label>
                                                 <input class="multisteps-form__input form-control" type="text"
-                                                    placeholder="Nombre" />
+                                                    placeholder="Nombre" id="nombre" name="nombre" maxlength="40"
+                                                    [(ngModel)]="representante.nombre"
+                                                    onkeypress='return event.charCode >= 65 && event.charCode <= 90 || event.charCode >= 97 && event.charCode <= 122 || event.charCode == 32'
+                                                    required />
                                             </div>
                                         </div>
                                         <div class="form-row mt-4">
                                             <div class="col-12 col-sm-6">
                                                 <label>Segundo Nombre</label>
                                                 <input class="multisteps-form__input form-control" type="text"
-                                                    placeholder="Segundo Nombre" />
+                                                    placeholder="Segundo Nombre" name="segundo_nombre" maxlength="40"
+                                                    [(ngModel)]="representante.segundo_nombre"
+                                                    onkeypress='return event.charCode >= 65 && event.charCode <= 90 || event.charCode >= 97 && event.charCode <= 122 || event.charCode == 32'
+                                                    required />
                                             </div>
                                             <div class="col-12 col-sm-6 mt-4 mt-sm-0">
                                                 <label>Primer Apellido</label>
                                                 <input class="multisteps-form__input form-control" type="text"
-                                                    placeholder="Primer Apellido" />
+                                                    placeholder="Primer Apellido" name="primer_apellido" maxlength="40"
+                                                    [(ngModel)]="representante.primer_apellido"
+                                                    onkeypress='return event.charCode >= 65 && event.charCode <= 90 || event.charCode >= 97 && event.charCode <= 122 || event.charCode == 32'
+                                                    required />
                                             </div>
                                         </div>
                                         <div class="form-row mt-4">
                                             <div class="col-12 col-sm-6 mt-4 mt-sm-0">
                                                 <label>Segundo Apellido</label>
                                                 <input class="multisteps-form__input form-control" type="text"
-                                                    placeholder="Segundo Apellido" />
+                                                    placeholder="Segundo Apellido" name="segundo_apellido"
+                                                    maxlength="40" [(ngModel)]="representante.segundo_apellido"
+                                                    onkeypress='return event.charCode >= 65 && event.charCode <= 90 || event.charCode >= 97 && event.charCode <= 122 || event.charCode == 32'
+                                                    required />
                                             </div>
                                             <div class="gender-box">
                                                 <h3>Género</h3>
-                                                <div class="gender-option">
-                                                    <div class="gender">
-                                                        <input type="radio" id="check-male" name="gender" checked />
-                                                        <label for="check-male">M</label>
-                                                    </div>
-                                                    <div class="gender">
-                                                        <input type="radio" id="check-female" name="gender" />
-                                                        <label for="check-female">F</label>
-                                                    </div>
+                                                <div class="gender-box">
+                                                    <select pInputText placeholder="Sexo" type="text"
+                                                        [(ngModel)]="representante.genero" id="genero" name="genero"
+                                                        required>
+                                                        <option value="" disabled selected>Seleccione su género</option>
+                                                        <option value="M">Masculino</option>
+                                                        <option value="F">Femenino</option>
+                                                    </select>
                                                 </div>
                                             </div>
                                         </div>
@@ -85,31 +99,50 @@
                                             <div class="col-12 col-sm-6 mt-4 mt-sm-0">
                                                 <label>Fecha Nacimiento</label>
                                                 <input class="multisteps-form__input form-control" type="date"
-                                                    placeholder="Fecha Nacimiento" required />
+                                                    placeholder="Fecha Nacimiento" name="fecha_nacimiento"
+                                                    [(ngModel)]="representante.fecha_nacimiento" required />
                                             </div>
                                             <div class="col-12 col-sm-6 mt-4 mt-sm-0">
                                                 <label>Correo Electrónico</label>
                                                 <input class="multisteps-form__input form-control" type="email"
-                                                    placeholder="Correo Electrónico" />
+                                                    placeholder="Correo Electrónico" name="correo"
+                                                    [(ngModel)]="representante.correo" class={{verfCorreo}}
+                                                    (ngModelChange)="validarCorreo()" required />
                                             </div>
                                         </div>
                                         <div class="form-row mt-4">
                                             <div class="col-12 col-sm-6 mt-4 mt-sm-0">
                                                 <label>Dirección</label>
                                                 <input class="multisteps-form__input form-control" type="text"
-                                                    placeholder="Dirección" />
+                                                    placeholder="Dirección" name="direccion" maxlength="80"
+                                                    [(ngModel)]="representante.direccion" required
+                                                    #direccionInput="ngModel" />
                                             </div>
                                             <div class="col-12 col-sm-6 mt-4 mt-sm-0">
                                                 <label>Ocupación</label>
                                                 <input class="multisteps-form__input form-control" type="text"
-                                                    placeholder="Ocupación" />
+                                                    placeholder="Ocupación" name="ocupacion" maxlength="30"
+                                                    [(ngModel)]="representante.ocupacion"
+                                                    onkeypress='return event.charCode >= 65 && event.charCode <= 90 || event.charCode >= 97 && event.charCode <= 122 || event.charCode == 32'
+                                                    required />
                                             </div>
                                         </div>
                                         <div class="form-row mt-4">
                                             <div class="col-12 col-sm-6 mt-4 mt-sm-0">
                                                 <label>Teléfono Contacto</label>
                                                 <input class="multisteps-form__input form-control" type="text"
-                                                    placeholder="Teléfono Contacto" />
+                                                    placeholder="Teléfono Contacto" name="telefonoContacto"
+                                                    maxlength="10" [(ngModel)]="representante.telefonoContacto"
+                                                    onkeypress='return event.charCode >= 48 && event.charCode <= 57'
+                                                    required />
+                                            </div>
+                                            <div class="col-12 col-sm-6 ">
+                                                <label>Teléfono Contacto 2</label>
+                                                <input class="multisteps-form__input form-control" type="text"
+                                                    placeholder="Teléfono Contacto 2" name="telefonoContacto2"
+                                                    maxlength="10" [(ngModel)]="representante.telefonoContacto2"
+                                                    onkeypress='return event.charCode >= 48 && event.charCode <= 57'
+                                                    required />
                                             </div>
                                         </div>
                                         <div class="button-row d-flex mt-4">
@@ -128,80 +161,82 @@
                                             <div class="col-12 col-sm-6">
                                                 <label>Cédula</label>
                                                 <input class="multisteps-form__input form-control" type="text"
-                                                    placeholder="Cédula" />
+                                                    placeholder="Cédula" name="cedula" maxlength="10"
+                                                    [(ngModel)]="estudiante.cedula"
+                                                    onkeypress='return event.charCode >= 48 && event.charCode <= 57'
+                                                    required />
                                             </div>
                                             <div class="col-12 col-sm-6 mt-4 mt-sm-0">
                                                 <label>Nombre</label>
                                                 <input class="multisteps-form__input form-control" type="text"
-                                                    placeholder="Nombre" />
+                                                    placeholder="Nombre" name="nombre" maxlength="40"
+                                                    [(ngModel)]="estudiante.nombre"
+                                                    onkeypress='return event.charCode >= 65 && event.charCode <= 90 || event.charCode >= 97 && event.charCode <= 122 || event.charCode == 32'
+                                                    required />
                                             </div>
                                         </div>
                                         <div class="form-row mt-4">
                                             <div class="col-12 col-sm-6">
                                                 <label>Segundo Nombre</label>
                                                 <input class="multisteps-form__input form-control" type="text"
-                                                    placeholder="Segundo Nombre" />
+                                                    placeholder="Segundo Nombre" name="segundo_nombre" maxlength="40"
+                                                    [(ngModel)]="estudiante.segundo_nombre"
+                                                    onkeypress='return event.charCode >= 65 && event.charCode <= 90 || event.charCode >= 97 && event.charCode <= 122 || event.charCode == 32'
+                                                    required />
                                             </div>
                                             <div class="col-12 col-sm-6 mt-4 mt-sm-0">
                                                 <label>Primer Apellido</label>
                                                 <input class="multisteps-form__input form-control" type="text"
-                                                    placeholder="Primer Apellido" />
+                                                    placeholder="Primer Apellido" name="primer_apellido" maxlength="40"
+                                                    [(ngModel)]="estudiante.primer_apellido"
+                                                    onkeypress='return event.charCode >= 65 && event.charCode <= 90 || event.charCode >= 97 && event.charCode <= 122 || event.charCode == 32'
+                                                    required />
                                             </div>
                                         </div>
                                         <div class="form-row mt-4">
                                             <div class="col-12 col-sm-6 ">
                                                 <label>Segundo Apellido</label>
                                                 <input class="multisteps-form__input form-control" type="text"
-                                                    placeholder="Segundo Apellido" />
+                                                    placeholder="Segundo Apellido" name="segundo_apellido"
+                                                    maxlength="40" [(ngModel)]="estudiante.segundo_apellido"
+                                                    onkeypress='return event.charCode >= 65 && event.charCode <= 90 || event.charCode >= 97 && event.charCode <= 122 || event.charCode == 32'
+                                                    required />
                                             </div>
                                             <div class="gender-box">
                                                 <h3>Género</h3>
-                                                <div class="gender-option">
-                                                    <div class="gender">
-                                                        <input type="radio" id="check-male" name="gender" checked />
-                                                        <label for="check-male">M</label>
-                                                    </div>
-                                                    <div class="gender">
-                                                        <input type="radio" id="check-female" name="gender" />
-                                                        <label for="check-female">F</label>
-                                                    </div>
-                                                </div>
+                                                <select pInputText placeholder="Sexo" type="text"
+                                                    [(ngModel)]="estudiante.genero" id="genero" name="genero" required>
+                                                    <option value="" disabled selected>Seleccione su género</option>
+                                                    <option value="M">Masculino</option>
+                                                    <option value="F">Femenino</option>
+                                                </select>
                                             </div>
                                         </div>
                                         <div class="form-row mt-4">
+
                                             <div class="col-12 col-sm-6 mt-4 mt-sm-0">
                                                 <label>Fecha Nacimiento</label>
                                                 <input class="multisteps-form__input form-control" type="date"
-                                                    placeholder="Fecha Nacimiento" required />
+                                                    placeholder="Fecha Nacimiento" name="fecha_nacimiento"
+                                                    [(ngModel)]="estudiante.fecha_nacimiento" required />
                                             </div>
+
+
                                             <div class="col-12 col-sm-6 ">
                                                 <label>Correo Electrónico</label>
                                                 <input class="multisteps-form__input form-control" type="email"
-                                                    placeholder="Correo Electrónico" />
+                                                    placeholder="Correo Electrónico" name="correo"
+                                                    [(ngModel)]="estudiante.correo" class={{verfCorreo}}
+                                                    (ngModelChange)="validarCorreo2()" required />
                                             </div>
                                         </div>
                                         <div class="form-row mt-4">
                                             <div class="col-12 col-sm-6 mt-4 mt-sm-0">
                                                 <label>Dirección</label>
                                                 <input class="multisteps-form__input form-control" type="text"
-                                                    placeholder="Dirección" />
-                                            </div>
-                                            <div class="col-12 col-sm-6 ">
-                                                <label>Ocupación</label>
-                                                <input class="multisteps-form__input form-control" type="text"
-                                                    placeholder="Ocupación" />
-                                            </div>
-                                        </div>
-                                        <div class="form-row mt-4">
-                                            <div class="col-12 col-sm-6 mt-4 mt-sm-0">
-                                                <label>Teléfono Contacto</label>
-                                                <input class="multisteps-form__input form-control" type="text"
-                                                    placeholder="Teléfono Contacto" />
-                                            </div>
-                                            <div class="col-12 col-sm-6">
-                                                <label>Contraseña</label>
-                                                <input class="multisteps-form__input form-control" type="password"
-                                                    placeholder="Contraseña" />
+                                                    placeholder="Dirección" name="direccion" maxlength="80"
+                                                    [(ngModel)]="estudiante.direccion" required
+                                                    #direccionInput="ngModel" />
                                             </div>
                                         </div>
                                         <div class="row">
@@ -212,10 +247,8 @@
                                                     title="Send">Guardar</button>
                                                 <button class="btn btn-primary ml-auto js-btn-next" type="button"
                                                     title="Next">Siguiente</button>
-
                                             </div>
                                         </div>
-
                                     </div>
                                 </div>
                                 <div class="multisteps-form__panel shadow p-4 rounded bg-white"
@@ -278,10 +311,11 @@
                                             <button class="btn btn-primary js-btn-prev" type="button"
                                                 title="Prev">Atrás</button>
                                             <button class="btn btn-success ml-auto" type="button"
-                                                title="Send">Guardar</button>
+                                                title="ddddd" [routerLink]="['/matricula/ver-matricula']">Ver matricula</button>
                                         </div>
                                     </div>
-                                    <button class="btn btn-success ml-auto" type="button" title="Send">Guardar</button>
+                                    <button class="btn btn-success ml-auto" type="button" title="xd"
+                                        (click)="registrarMatricula()"> Guardar </button>
                                 </div>
                             </form>
                         </div>
@@ -294,4 +328,3 @@
     <script src="matricula.js"></script>
 
 </body>
-
