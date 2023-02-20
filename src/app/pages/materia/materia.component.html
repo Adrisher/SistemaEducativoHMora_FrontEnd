@@ -1,5 +1,6 @@
 <div class="container">
-    <button class="btn btn-primary mg-2" [routerLink]="['producto/formulario']">Crear</button>
+    <button type="button" class="btn btn-primary mb-3" data-toggle="modal" data-target="#materiaModal"> <i
+      class="fa fa-plus"></i> Agregar</button>
     <table class="table table-striped table-hover">
         <thead>
           <tr>
@@ -10,17 +11,63 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let m of materias">
-            <th scope="row">{{m.id_materia}}</th>
-            <td>{{m.nombre}}</td>
-            <td>{{m.abreviatura}}</td>
-            <td>{{m.area}}</td>
-            <td>{{m.descripcion}}</td>
+          <tr *ngFor="let materia of materias">
+            <th scope="row">{{materia.id_materia}}</th>
+            <td>{{materia.nombre}}</td>
+            <td>{{materia.abreviatura}}</td>
+            <td>{{materia.area}}</td>
+            <td>{{materia.descripcion}}</td>
             <td>
-                <button class="btn btn-info me-2" [routerLink]="['materia/formulario/', m.id_materia]">Editar</button>
-                <button class="btn btn-danger" (click)="deleteMateria(m)">Eliminar</button>
+              <button type="button" class="btn btn-primary mb-3" data-toggle="modal" data-target="#materiaModal"> 
+                <i class="fa fa-plus"></i> Editar</button>
+              <button class="btn btn-danger" (click)="deleteMateria(materia)">Eliminar</button>
             </td>
           </tr>
         </tbody>
       </table>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="materiaModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header bg-dark">
+        <h5 class="modal-title"><i class="fa fa-cubes"></i> Agregar Materia</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="input-group mb-3">
+            <input type="text" class="form-control" name="nombre" [(ngModel)]="materia.nombre" placeholder="Nombre" required>
+            <!-- <input type="text" class="form-control" formControlName="nombre" placeholder="Nombre" required> -->
+          </div>
+          <div class="input-group mb-3">
+            <input type="text" class="form-control" name="area" [(ngModel)]="materia.area" placeholder="Area" required>
+            <!-- <input type="text" class="form-control" formControlName="area" placeholder="Area" required> -->
+          </div>
+          <div class="input-group mb-3">
+            <input type="text" class="form-control" name="abreviatura" [(ngModel)]="materia.abreviatura" placeholder="Abreviatura" required>
+            <!-- <input type="text" class="form-control" formControlName="abreviatura" placeholder="Abreviatura" required> -->
+          </div>
+          <div class="input-group mb-3">
+            <input type="text" class="form-control" name="descripcion" [(ngModel)]="materia.descripcion" placeholder="Descripción" required>
+            <!-- <input type="text" class="form-control" formControlName="descripcion" placeholder="Descripción" required> -->
+          </div>
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-primary mg-2" (click)="create()" *ngIf="!materia.id_materia">Guardar</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+          <!-- <div class="form-group row">
+            <label for="categoria" class="col-form-label col-sm-2">Categoria</label>
+            <select [compareWith]="compararCategoria" name="categoria" class="form-control" [(ngModel)]="producto.categoria_id">
+                <option [ngValue]="undefined">---Seleccionar---</option>
+                <option *ngFor="let c of categorias" [ngValue]="c">{{c.nombre}}</option>
+            </select>
+          </div> -->
+        </form>
+      </div>
+    </div>
+  </div>
 </div>

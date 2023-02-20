@@ -13,11 +13,10 @@ const routes: Routes = [
     {path: '', component: DashboardComponent, data: {titulo:"Dashboard"}},
     {path: 'materia', component: MateriaComponent, data: {titulo:"Materia"}},
     {path: 'matricula', component: MatriculaComponent, data: {titulo:"Matricula"}},
-    {path: 'profesor', component: ProfesorComponent, data: {titulo:"Profesor"}},
-
+    {path: 'profesor', component: ProfesorComponent, data: {titulo:"Profesor"}}
 
     ]
-  },
+  }
 ]
 
 @NgModule({

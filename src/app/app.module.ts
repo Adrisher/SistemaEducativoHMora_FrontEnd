@@ -9,11 +9,13 @@ import { NopageFoundComponent } from './nopage-found/nopage-found.component';
 import { PagesModule } from './pages/pages.module';
 
 import { HttpClientModule} from '@angular/common/http';
+import { RecargaDirective } from './directives/recarga.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NopageFoundComponent
+    NopageFoundComponent,
+    RecargaDirective
   ],
   imports: [
     BrowserModule,
