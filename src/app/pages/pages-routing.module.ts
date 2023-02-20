@@ -20,8 +20,9 @@ const routes: Routes = [
     {path: 'curso', component: CursoComponent, data: {titulo:"Curso"}},
     {path: 'estudiante', component: EstudianteComponent, data: {titulo:"Estudiante"}},
     {path: 'ver-matricula', component: VerMatriculaComponent, data: {titulo:"VerMatricula"}}
+
     ]
-  },
+  }
 ]
 
 @NgModule({
