@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-ver-matricula',
@@ -6,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./ver-matricula.component.css']
 })
 export class VerMatriculaComponent {
-
+  constructor(private router: Router) { }
 }

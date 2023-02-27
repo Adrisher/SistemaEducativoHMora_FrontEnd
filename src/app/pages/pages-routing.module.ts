@@ -15,11 +15,11 @@ const routes: Routes = [
   children: [
     {path: '', component: DashboardComponent, data: {titulo:"Dashboard"}},
     {path: 'materia', component: MateriaComponent, data: {titulo:"Materia"}},
-    {path: 'matricula', component: MatriculaComponent, data: {titulo:"Matricula"}},
+    {path: 'matricula', component: MatriculaComponent, data: {titulo:"Matriculación"}},
     {path: 'profesor', component: ProfesorComponent, data: {titulo:"Profesor"}},
     {path: 'curso', component: CursoComponent, data: {titulo:"Curso"}},
     {path: 'estudiante', component: EstudianteComponent, data: {titulo:"Estudiante"}},
-    {path: 'ver-matricula', component: VerMatriculaComponent, data: {titulo:"VerMatricula"}}
+    {path: 'ver-matricula', component: VerMatriculaComponent, data: {titulo:"Matricula"}}
 
     ]
   }

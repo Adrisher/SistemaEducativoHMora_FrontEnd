@@ -149,3 +149,4 @@ const setAnimationType = newType => {
         elem.dataset.animation = newType;
     });
 };
+

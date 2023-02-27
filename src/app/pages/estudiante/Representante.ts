@@ -1,4 +1,5 @@
 export class Representante {
+    
     id_representante: number;
     cedula: String;
     nombre: String;
@@ -13,4 +14,5 @@ export class Representante {
     ocupacion: String;
     telefonoContacto: String;
     telefonoContacto2: String;
+    
 }
