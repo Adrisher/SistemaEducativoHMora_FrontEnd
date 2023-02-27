@@ -1,48 +1,83 @@
-<div class="card ">
-    <div class="card-header">Permisos</div>
-    <div class="card-body ">
-
-        <div class="my-2 text-left">
-            <!-- <button class="btn btn-rounded btn-primary" type="button" [routerLink]="['/clientes/form']">Crear Rol</button> -->
+<body class="body">
+    <div class="container">
+        <div class="student-info">
+            <h1 class="student-name">Alfredo Humberto Mora</h1>
+            <h2 class="student-status">Estudiante</h2>
+            <p class="student-info">Nombre del estudiante</p>
+            <h2 class="student-date">Fecha</h2>
+            <p class="student-info">fecha</p>
         </div>
-        <table class="table table-bordered table-striped">
+        <table class="table custom-table">
             <thead>
                 <tr>
-                    <th>DOCENTE</th>
-                    <th>SOLICITANTE</th>
-                    <th>RESPONSABLE</th>
-                    <th>CONSTATANTE</th>
+                    <th scope="col">ID</th>
+                    <th scope="col">Asignatura</th>
+                    <th scope="col">Docente</th>
+                    <th scope="col">Jornada</th>
+                    <th scope="col">Paralelo</th>
+                    <th scope="col">Acciones</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <!-- <td>{{usuarios.nombres}} {{usuarios.apellidos}}</td> -->
+                    <th scope="row">x</th>
+                    <td>x</td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td>x</td>
                     <td>
-                        <label class="toggle" for="myToggle">
-                            <input class="toggle__input" name="" type="checkbox" id="myToggle" checked=true
-                                placeholder="xd" disabled>
-                            <div class="toggle__fill"></div>
-                        </label>
-                    </td>
-
-                    <td>
-                        <label class="toggle" for="myToggle2">
-                            <input class="toggle__input2" name="" type="checkbox"
-                                id="myToggle2" placeholder="xd" >
-                            <div class="toggle__fill"></div>
-                        </label>
-                    </td>
-
-                    <td>
-                        <label class="toggle" for="myToggle3">
-                            <input class="toggle__input3" name="" type="checkbox" 
-                                id="myToggle3" placeholder="xd" >
-                            <div class="toggle__fill"></div>
-                        </label>
+                        <button type="button" class="btn btn-info" data-toggle="modal" data-target="#materiaModal">
+                            <i class="far fa-edit"></i>Editar
+                        </button>
+                        <button class="btn btn-danger" role="button">
+                            <i class="fa fa-trash"></i>Eliminar
+                        </button>
                     </td>
                 </tr>
             </tbody>
         </table>
-        <button class="btn3">Confirmar</button>
+
+        <!-- Modal -->
+        <div class="modal fade" id="materiaModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header bg-black">
+                        <h5 class="modal-title"><i class="fas fa-graduation-cap"></i> Matricula</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="form-group">
+                                <label for="docente">Docente:</label>
+                                <input type="text" class="custom-input" id="docente" name="docente"
+                                    placeholder="Docente" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="jornada">Jornada:</label>
+                                <input type="text" class="custom-input" id="jornada" name="jornada"
+                                    placeholder="Jornada" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="paralelo">Paralelo:</label>
+                                <select class="custom-select custom-select" id="paralelo" name="paralelo">
+                                    <option selected>Seleccione un paralelo</option>
+                                    <option value="A">A</option>
+                                    <option value="B">B</option>
+                                    <option value="C">C</option>
+                                    <option value="D">D</option>
+                                </select>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-success"><i class="fa fa-save"></i>Guardar</button>
+                        <button type="button" class="btn2 btn-secondary" data-dismiss="modal"> <i
+                                class="fa fa-times-circle"></i>Cancelar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-</div>
+</body>

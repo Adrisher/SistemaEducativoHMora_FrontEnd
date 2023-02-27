@@ -9,9 +9,9 @@ import { RouterModule } from '@angular/router';
 import { SharedModule } from '../shared/shared.module';
 import { CursoComponent } from './curso/curso.component';
 import { EstudianteComponent } from './estudiante/estudiante.component';
-import { ReactiveFormsModule } from '@angular/forms';
 import { VerMatriculaComponent } from './matricula/ver-matricula/ver-matricula.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 
 
 @NgModule({
@@ -37,7 +37,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ProfesorComponent,
     MateriaComponent,
     EstudianteComponent,
-    MatriculaComponent
+    MatriculaComponent,
+    VerMatriculaComponent
   ]
 })
 export class PagesModule { }

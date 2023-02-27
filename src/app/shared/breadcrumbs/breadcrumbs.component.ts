@@ -8,30 +8,30 @@ import { map, filter } from 'rxjs/operators';
   templateUrl: './breadcrumbs.component.html',
   styleUrls: ['./breadcrumbs.component.css']
 })
-export class BreadcrumbsComponent implements OnDestroy  {
+export class BreadcrumbsComponent implements OnDestroy {
 
-  public titulo?:string;
-  public tituloSubs$:Subscription;
+  public titulo?: string;
+  public tituloSubs$: Subscription;
 
-  constructor(private router:Router) {
-    this.tituloSubs$ = this.getArgumentos().subscribe(({titulo})=>{
+  constructor(private router: Router) {
+    this.tituloSubs$ = this.getArgumentos().subscribe(({ titulo }) => {
       this.titulo = titulo;
-      document.title = `AdminLte - ${titulo}`;
+      document.title = `Sistema Gestión HMORA - ${titulo}`;
     })
 
-   }
-  
-  
+  }
+
+
   ngOnDestroy() {
     this.tituloSubs$.unsubscribe();
   }
 
-  getArgumentos(){
+  getArgumentos() {
 
     return this.router.events.pipe(
-      filter((event:any) => event instanceof ActivationEnd),
-      filter((event:ActivationEnd)=> event.snapshot.firstChild === null),
-      map((event:ActivationEnd)=> event.snapshot.data)
+      filter((event: any) => event instanceof ActivationEnd),
+      filter((event: ActivationEnd) => event.snapshot.firstChild === null),
+      map((event: ActivationEnd) => event.snapshot.data)
     );
 
   }

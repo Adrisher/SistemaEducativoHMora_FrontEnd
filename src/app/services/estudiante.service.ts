@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Estudiante } from '../pages/estudiante/Estudiante';
 
@@ -8,17 +8,29 @@ import { Estudiante } from '../pages/estudiante/Estudiante';
 })
 export class EstudianteService {
 
-  private url: string =  "http://localhost:8080/hmora/estudiante";
-  
+  private baseUrl = 'http://localhost:8080/hmora/estudiante';
+
   constructor(private httpClient: HttpClient) { }
 
-  //listar estudiante
-  public getAllEstudiantes(): Observable<any> {
-    return this.httpClient.get(this.url + "/lista_estudiantes");
+  // Listar todos los estudiantes
+  getAllEstudiantes(): Observable<Estudiante[]> {
+    return this.httpClient.get<Estudiante[]>(`${this.baseUrl}/lista_estudiantes`);
   }
 
-    //Crear Estudiantes
-    create(estudiante: Estudiante): Observable<Estudiante> {
-      return this.httpClient.post<Estudiante>(this.url + '/crear', estudiante);
-    }
+  // Crear un nuevo estudiante
+  createEstudiante(estudiante: Estudiante): Observable<Estudiante> {
+    return this.httpClient.post<Estudiante>(`${this.baseUrl}/crear`, estudiante);
+  }
+
+  // Actualizar los datos de un estudiante existente
+  updateEstudiante(estudiante: Estudiante): Observable<Estudiante> {
+    const url = `${this.baseUrl}/${estudiante.id}`;
+    return this.httpClient.put<Estudiante>(url, estudiante);
+  }
+
+  // Eliminar un estudiante por su ID
+  deleteEstudiante(id: number): Observable<any> {
+    const url = `${this.baseUrl}/${id}`;
+    return this.httpClient.delete(url);
+  }
 }

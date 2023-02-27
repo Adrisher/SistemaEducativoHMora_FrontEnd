@@ -12,14 +12,28 @@ export class CursoService {
 
 
   constructor(private httpClient: HttpClient) { }
+  
 
-  //listar cursos
-  public getAllCursos(): Observable<any> {
-    return this.httpClient.get(this.url + "/listarCursos");
-  }
-
-  //Crear Cursos
-  create(curso: Curso): Observable<Curso> {
-    return this.httpClient.post<Curso>(this.url + '/crearCurso"', curso);
-  }
+getAllCurso(): Observable<any> {
+  return this.httpClient.get(this.url + "/listarCursos'");
 }
+
+createCurso(curso: Curso): Observable<Curso> {
+  return this.httpClient.post<Curso>(this.url + "/crear", curso);
+}
+
+
+
+// getOne(id: number): Observable<Curso> {
+//   return this.httpClient.get<Curso>(this.url + id);
+// }
+
+// update(curso: Curso): Observable<Curso> {
+//   return this.httpClient.put<Curso>(this.url + '/actualizarCliente/' + curso.id_curso, curso);
+// }
+
+// public delete(id_curso: number){
+//   return this.httpClient.delete(this.url + '/elminarCursos/'+ id_curso);
+// }
+}
+  

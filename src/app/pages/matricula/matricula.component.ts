@@ -10,6 +10,8 @@ import { CursoService } from 'src/app/services/curso.service';
 import { EstudianteService } from 'src/app/services/estudiante.service';
 import { RepresentanteService } from 'src/app/services/representante.service';
 import { MatriculaService } from 'src/app/services/matricula.service';
+import { Ciclo } from '../curso/Ciclo.enum';
+import { Paralelo } from '../curso/Paralelo.enum';
 
 @Component({
   selector: 'app-matricula',
@@ -93,7 +95,7 @@ export class MatriculaComponent {
   }
 
 
-
+  cursos: Curso[] = [];
   curso: Curso = new Curso;
   estudiante: Estudiante = new Estudiante;
   matricula: Matricula = new Matricula;
@@ -107,7 +109,19 @@ export class MatriculaComponent {
     _CargarScripts.funciones(["matricula"]);
   }
 
+  ciclos: any[] = [];
+  paralelos: any[] = [];
   ngOnInit(): void {
+    for (let item in Ciclo) {
+      if (isNaN(Number(item))) {
+        this.ciclos.push({ text: item, value: Ciclo[item] });
+      }
+    }
+    for (let item in Paralelo) {
+      if (isNaN(Number(item))) {
+        this.paralelos.push({ text: item, value: Paralelo[item] });
+      }
+    }
     this.ValidarCampos();
   }
 
@@ -123,17 +137,17 @@ export class MatriculaComponent {
         if (!data) {
         } else {
           this.estudiante.representante = this.representante;
-          this.estudianteService.create(this.estudiante).subscribe(
+          this.estudianteService.createEstudiante(this.estudiante).subscribe(
             result => {
               console.log(result);
-              Swal.fire({
-                position: 'top-end',
-                icon: 'success',
-                title: 'Estudiante y Representante ingresados',
-                showConfirmButton: false,
-                timer: 1500
-              })
-              this.reloadPage();
+              // Swal.fire({
+              //   position: 'top-end',
+              //   icon: 'success',
+              //   title: 'Estudiante y Representante ingresados',
+              //   showConfirmButton: false,
+              //   timer: 1500
+              // })
+              // this.reloadPage();
             })
         }
       })
