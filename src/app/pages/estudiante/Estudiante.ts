@@ -13,6 +13,8 @@ export class Estudiante {
     direccion: String;
     estado: boolean = true;
     representante: Representante;
-    id: any;
+    id_usuario: any;
+
+    
 
 }

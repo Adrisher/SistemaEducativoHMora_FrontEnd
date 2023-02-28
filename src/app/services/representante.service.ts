@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, throwError } from 'rxjs';
+import { catchError } from 'rxjs/operators';
 import { Representante } from '../pages/estudiante/Representante';
 
 @Injectable({
@@ -8,28 +9,41 @@ import { Representante } from '../pages/estudiante/Representante';
 })
 export class RepresentanteService {
 
-  private url: string = "http://localhost:8080/hmora/representante";
+  private readonly url = "http://localhost:8080/hmora/representante";
+
+  private readonly httpOptions = {
+    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+  };
 
   constructor(private httpClient: HttpClient) { }
 
-  //listar representante
-  getAllRepresentante(): Observable<any> {
-    return this.httpClient.get(this.url + "/listarRespresentantes");
-}
-
-  //Crear representante
-  create(representante: Representante): Observable<Representante> {
-    return this.httpClient.post<Representante>(this.url + '/crear', representante);
+  createRepresentante(representante: Representante): Observable<Representante> {
+    return this.httpClient.post<Representante>(this.url + '/crear', representante)
+      .pipe(
+        catchError((error) => {
+          console.error(error);
+          throw error;
+        })
+      );
   }
 
-  delete(id: number): Observable<any> {
-    return this.httpClient.delete(this.url + '/eliminar/' + id);
-}
+  deleteRepresentante(id: number): Observable<void> {
+    return this.httpClient.delete<void>(`${this.url}/eliminar/${id}`)
+      .pipe(
+        catchError((error) => {
+          console.error(`Error al eliminar representante con id ${id}:`, error);
+          return throwError(error);
+        })
+      );
+  }
 
-  update(id: number, representante: Representante): Observable<any> {
-    return this.httpClient.put(this.url + '/actualizar/' + id, representante);
-}
-
-
-
+  updateRepresentante(id: number, representante: Representante): Observable<Representante> {
+    return this.httpClient.put<Representante>(`${this.url}/actualizar/${id}`, representante, this.httpOptions)
+      .pipe(
+        catchError((error) => {
+          console.error(`Error al actualizar representante con id ${id}:`, error);
+          return throwError(error);
+        })
+      );
+  }
 }

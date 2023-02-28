@@ -1,152 +1,152 @@
-const DOMstrings = {
-    stepsBtnClass: 'multisteps-form__progress-btn',
-    stepsBtns: document.querySelectorAll(`.multisteps-form__progress-btn`),
-    stepsBar: document.querySelector('.multisteps-form__progress'),
-    stepsForm: document.querySelector('.multisteps-form__form'),
-    stepsFormTextareas: document.querySelectorAll('.multisteps-form__textarea'),
-    stepFormPanelClass: 'multisteps-form__panel',
-    stepFormPanels: document.querySelectorAll('.multisteps-form__panel'),
-    stepPrevBtnClass: 'js-btn-prev',
-    stepNextBtnClass: 'js-btn-next'
-};
+// const DOMstrings = {
+//     stepsBtnClass: 'multisteps-form__progress-btn',
+//     stepsBtns: document.querySelectorAll(`.multisteps-form__progress-btn`),
+//     stepsBar: document.querySelector('.multisteps-form__progress'),
+//     stepsForm: document.querySelector('.multisteps-form__form'),
+//     stepsFormTextareas: document.querySelectorAll('.multisteps-form__textarea'),
+//     stepFormPanelClass: 'multisteps-form__panel',
+//     stepFormPanels: document.querySelectorAll('.multisteps-form__panel'),
+//     stepPrevBtnClass: 'js-btn-prev',
+//     stepNextBtnClass: 'js-btn-next'
+// };
 
 
-const removeClasses = (elemSet, className) => {
+// const removeClasses = (elemSet, className) => {
 
-    elemSet.forEach(elem => {
+//     elemSet.forEach(elem => {
 
-        elem.classList.remove(className);
+//         elem.classList.remove(className);
 
-    });
+//     });
 
-};
+// };
 
-const findParent = (elem, parentClass) => {
+// const findParent = (elem, parentClass) => {
 
-    let currentNode = elem;
+//     let currentNode = elem;
 
-    while (!currentNode.classList.contains(parentClass)) {
-        currentNode = currentNode.parentNode;
-    }
+//     while (!currentNode.classList.contains(parentClass)) {
+//         currentNode = currentNode.parentNode;
+//     }
 
-    return currentNode;
+//     return currentNode;
 
-};
+// };
 
-const getActiveStep = elem => {
-    return Array.from(DOMstrings.stepsBtns).indexOf(elem);
-};
+// const getActiveStep = elem => {
+//     return Array.from(DOMstrings.stepsBtns).indexOf(elem);
+// };
 
-const setActiveStep = activeStepNum => {
+// const setActiveStep = activeStepNum => {
 
-    removeClasses(DOMstrings.stepsBtns, 'js-active');
+//     removeClasses(DOMstrings.stepsBtns, 'js-active');
 
-    DOMstrings.stepsBtns.forEach((elem, index) => {
+//     DOMstrings.stepsBtns.forEach((elem, index) => {
 
-        if (index <= activeStepNum) {
-            elem.classList.add('js-active');
-        }
+//         if (index <= activeStepNum) {
+//             elem.classList.add('js-active');
+//         }
 
-    });
-};
+//     });
+// };
 
-const getActivePanel = () => {
+// const getActivePanel = () => {
 
-    let activePanel;
+//     let activePanel;
 
-    DOMstrings.stepFormPanels.forEach(elem => {
+//     DOMstrings.stepFormPanels.forEach(elem => {
 
-        if (elem.classList.contains('js-active')) {
+//         if (elem.classList.contains('js-active')) {
 
-            activePanel = elem;
+//             activePanel = elem;
 
-        }
+//         }
 
-    });
+//     });
 
-    return activePanel;
+//     return activePanel;
 
-};
+// };
 
-const setActivePanel = activePanelNum => {
+// const setActivePanel = activePanelNum => {
 
-    removeClasses(DOMstrings.stepFormPanels, 'js-active');
+//     removeClasses(DOMstrings.stepFormPanels, 'js-active');
 
-    DOMstrings.stepFormPanels.forEach((elem, index) => {
-        if (index === activePanelNum) {
+//     DOMstrings.stepFormPanels.forEach((elem, index) => {
+//         if (index === activePanelNum) {
 
-            elem.classList.add('js-active');
+//             elem.classList.add('js-active');
 
-            setFormHeight(elem);
+//             setFormHeight(elem);
 
-        }
-    });
+//         }
+//     });
 
-};
+// };
 
-const formHeight = activePanel => {
+// const formHeight = activePanel => {
 
-    const activePanelHeight = activePanel.offsetHeight;
+//     const activePanelHeight = activePanel.offsetHeight;
 
-    DOMstrings.stepsForm.style.height = `${activePanelHeight}px`;
+//     DOMstrings.stepsForm.style.height = `${activePanelHeight}px`;
 
-};
+// };
 
-const setFormHeight = () => {
-    const activePanel = getActivePanel();
+// const setFormHeight = () => {
+//     const activePanel = getActivePanel();
 
-    formHeight(activePanel);
-};
+//     formHeight(activePanel);
+// };
 
-DOMstrings.stepsBar.addEventListener('click', e => {
+// DOMstrings.stepsBar.addEventListener('click', e => {
 
-    const eventTarget = e.target;
+//     const eventTarget = e.target;
 
-    if (!eventTarget.classList.contains(`${DOMstrings.stepsBtnClass}`)) {
-        return;
-    }
+//     if (!eventTarget.classList.contains(`${DOMstrings.stepsBtnClass}`)) {
+//         return;
+//     }
 
-    const activeStep = getActiveStep(eventTarget);
+//     const activeStep = getActiveStep(eventTarget);
 
-    setActiveStep(activeStep);
+//     setActiveStep(activeStep);
 
-    setActivePanel(activeStep);
-});
+//     setActivePanel(activeStep);
+// });
 
-DOMstrings.stepsForm.addEventListener('click', e => {
+// DOMstrings.stepsForm.addEventListener('click', e => {
 
-    const eventTarget = e.target;
+//     const eventTarget = e.target;
 
-    if (!(eventTarget.classList.contains(`${DOMstrings.stepPrevBtnClass}`) || eventTarget.classList.contains(`${DOMstrings.stepNextBtnClass}`))) {
-        return;
-    }
+//     if (!(eventTarget.classList.contains(`${DOMstrings.stepPrevBtnClass}`) || eventTarget.classList.contains(`${DOMstrings.stepNextBtnClass}`))) {
+//         return;
+//     }
 
-    const activePanel = findParent(eventTarget, `${DOMstrings.stepFormPanelClass}`);
+//     const activePanel = findParent(eventTarget, `${DOMstrings.stepFormPanelClass}`);
 
-    let activePanelNum = Array.from(DOMstrings.stepFormPanels).indexOf(activePanel);
+//     let activePanelNum = Array.from(DOMstrings.stepFormPanels).indexOf(activePanel);
 
-    if (eventTarget.classList.contains(`${DOMstrings.stepPrevBtnClass}`)) {
-        activePanelNum--;
+//     if (eventTarget.classList.contains(`${DOMstrings.stepPrevBtnClass}`)) {
+//         activePanelNum--;
 
-    } else {
+//     } else {
 
-        activePanelNum++;
+//         activePanelNum++;
 
-    }
+//     }
 
-    setActiveStep(activePanelNum);
-    setActivePanel(activePanelNum);
+//     setActiveStep(activePanelNum);
+//     setActivePanel(activePanelNum);
 
-});
+// });
 
-window.addEventListener('load', setFormHeight, false);
+// window.addEventListener('load', setFormHeight, false);
 
-window.addEventListener('resize', setFormHeight, false);
+// window.addEventListener('resize', setFormHeight, false);
 
 
-const setAnimationType = newType => {
-    DOMstrings.stepFormPanels.forEach(elem => {
-        elem.dataset.animation = newType;
-    });
-};
+// const setAnimationType = newType => {
+//     DOMstrings.stepFormPanels.forEach(elem => {
+//         elem.dataset.animation = newType;
+//     });
+// };
 
