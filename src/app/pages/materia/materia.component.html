@@ -1,11 +1,11 @@
 <div class="container">
   <div class="search-container">
-    <button type="button" class="btn btn-primary mb-3" data-toggle="modal" data-target="#materiaModal">
+    <button type="button" class="btn btn-primary mb-3" data-toggle="modal" data-target="#materiaModal"> 
       <i class="fa fa-plus"></i> Agregar
     </button>
     <form action="#">
-      <input type="text" placeholder="Buscar...">
-      <button type="submit">
+      <input type="text" class="form-control" name="buscar" placeholder="Buscar....." (input)="search($event)">
+      <button type="submit" class="btn btn-success" (click)="search($event)">
         <i class="fa fa-search"></i>
       </button>
     </form>
@@ -13,9 +13,8 @@
   <table class="table custom-table">
     <thead>
       <tr>
+        <th scope="col">N.</th>
         <th scope="col">Nombre</th>
-        <th scope="col">Abreviatura</th>
-        <th scope="col">Area</th>
         <th scope="col">Descripcion</th>
         <th scope="col">Editar</th>
         <th scope="col">Eliminar</th>
@@ -23,12 +22,10 @@
     </thead>
     <tbody>
       <tr *ngFor="let materia of materias">
-        <th scope="row">{{materia.id_materia}}</th>
+        <td>{{materia.id_materia}}</td>
         <td>{{materia.nombre}}</td>
-        <td>{{materia.abreviatura}}</td>
-        <td>{{materia.area}}</td>
         <td>{{materia.descripcion}}</td>
-        <td><button type="button" class="btn btn-info" data-toggle="modal" data-target="#materiaModal"><i
+        <td><button type="button" class="btn btn-info" data-toggle="modal" data-target="#materiaModal" (click)="editMateria(materia)"><i
               class="far fa-edit"></i>Editar</button></td>
         <td><button class="btn btn-danger" role="button"><i class="fa fa-trash"></i>Eliminar</button></td>
       </tr>
@@ -36,8 +33,7 @@
   </table>
 
 
-
-  <div class="modal fade" id="materiaModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal fade" id="materiaModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" #materiaModalRef>
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header bg-black">
@@ -49,23 +45,14 @@
         <div class="modal-body">
           <form>
             <div class="form-group">
-              <label for="correo">Correo Estudiante:</label>
-              <input type="text" class="custom-input" id="correo" name="correo" placeholder="Correo" required>
+              <input type="text" class="form-control" name="nombre" [(ngModel)]="materia.nombre" (ngModelChange)="materia.nombre = $event.toUpperCase()" placeholder="Nombre" required>
             </div>
             <div class="form-group">
-              <label for="correo">Correo Representante:</label>
-              <input type="text" class="custom-input" id="correo" name="correo" placeholder="Correo" required>
-            </div>
-            <div class="form-group">
-              <label for="direccion">Ocupación:</label>
-              <input type="text" class="custom-input" id="direccion" name="direccion" placeholder="Dirección" required>
-            </div>
-            <div class="form-group">
-              <label for="direccion">Dirección:</label>
-              <input type="text" class="custom-input" id="direccion" name="direccion" placeholder="Dirección" required>
+              <input type="text" class="form-control" name="descripcion" [(ngModel)]="materia.descripcion" placeholder="Descripción" required>
             </div>
             <div class="modal-footer">
-              <button type="submit" class="btn btn-success"><i class="fa fa-save"></i>Guardar</button>
+              <button type="submit" class="btn btn-success" (click)="update()" *ngIf="materia.id_materia" data-dismiss="modal"><i class="fa fa-save"></i>Guardar</button>
+              <button type="submit" class="btn btn-success" (click)="create()" *ngIf="!materia.id_materia" data-dismiss="modal"><i class="fa fa-save"></i>Guardar</button>
               <button type="button" class="btn2 btn-secondary" data-dismiss="modal"> <i
                   class="fa fa-times-circle"></i>Cancelar</button>
             </div>
