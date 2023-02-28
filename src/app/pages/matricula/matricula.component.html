@@ -1,308 +1,200 @@
-<head>
-    <meta charset="UTF-8">
-    <title>Matricula</title>
-    <link href="https://fonts.googleapis.com/css?family=Poppins:400,600&display=swap" rel="stylesheet">
-    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css'>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css">
-</head>
-
 <body>
-    <div class="content">
-        <div class="content__inner">
-            <div class="container2 overflow-hidden">
-                <div class="multisteps-form">
-                    <div class="row">
-                        <div class="col-12 col-lg-8 ml-auto mr-auto mb-4">
-                            <div class="multisteps-form__progress">
-                                <button class="multisteps-form__progress-btn js-active" type="button"
-                                    title="Representante">Representante</button>
-                                <button class="multisteps-form__progress-btn" type="button"
-                                    title="Estudiante">Estudiante</button>
-                                <button class="multisteps-form__progress-btn" type="button"
-                                    title="Order Info">Curso</button>
-                                <button class="multisteps-form__progress-btn" type="button" title="Curso"> Detalle
-                                </button>
-                            </div>
-                        </div>
+    <div class="wrapper">
+        <div class="container">
+            <form class="row box8">
+                <div class="col-sm-12 mx-t3 mb-4">
+                    <h2 class="text-center text-info">Datos Representante</h2>
+                </div>
+                <div class="col-sm-6 form-group">
+                    <label for="name-f">Cédula Representante</label>
+                    <input type="text" class="form-control" type="text" placeholder="Cédula" name="cedula"
+                        maxlength="10" [(ngModel)]="representante.cedula"
+                        onkeypress='return event.charCode >= 48 && event.charCode <= 57' required>
+                </div>
+                <div class="col-sm-6 form-group">
+                    <label for="name-l">Nombre</label>
+                    <input type="text" class="form-control" placeholder="Nombre" id="nombre" name="nombre"
+                        maxlength="40" [(ngModel)]="representante.nombre"
+                        onkeypress='return event.charCode >= 65 && event.charCode <= 90 || event.charCode >= 97 && event.charCode <= 122 || event.charCode == 32'
+                        required>
+                </div>
+                <div class="col-sm-6 form-group">
+                    <label for="email">Segundo Nombre</label>
+                    <input type="text" class="form-control" placeholder="Segundo Nombre" name="segundo_nombre"
+                        maxlength="40" [(ngModel)]="representante.segundo_nombre"
+                        onkeypress='return event.charCode >= 65 && event.charCode <= 90 || event.charCode >= 97 && event.charCode <= 122 || event.charCode == 32'
+                        required>
+                </div>
+                <div class="col-sm-6 form-group">
+                    <label for="address-1">Primer Apellido</label>
+                    <input type="address" class="form-control" placeholder="Primer Apellido" name="primer_apellido"
+                        maxlength="40" [(ngModel)]="representante.primer_apellido"
+                        onkeypress='return event.charCode >= 65 && event.charCode <= 90 || event.charCode >= 97 && event.charCode <= 122 || event.charCode == 32'
+                        required>
+                </div>
+                <div class="col-sm-6 form-group">
+                    <label for="address-2">Segundo Apellido</label>
+                    <input type="address" class="form-control" type="text" placeholder="Segundo Apellido"
+                        name="segundo_apellido" maxlength="40" [(ngModel)]="representante.segundo_apellido"
+                        onkeypress='return event.charCode >= 65 && event.charCode <= 90 || event.charCode >= 97 && event.charCode <= 122 || event.charCode == 32'
+                        required>
+                </div>
+                <div class="col-sm-3 form-group">
+                    <label for="sex">Género</label>
+                    <select class="custom-select custom-select" placeholder="Género" type="text"
+                        [(ngModel)]="representante.genero" id="genero" name="genero" required>
+                        <option selected>Seleccione su género</option>
+                        <option value="M">Masculino</option>
+                        <option value="F">Femenino</option>
+                    </select>
+                </div>
+                <div class="col-sm-3 form-group">
+                    <label for="Date">Fecha de Nacimiento</label>
+                    <input type="Date" name="dob" class="form-control" type="date" placeholder="Fecha Nacimiento"
+                        name="fecha_nacimiento" [(ngModel)]="representante.fecha_nacimiento" required>
+                </div>
+
+                <div class="col-sm-6 form-group">
+                    <label for="zip">Correo</label>
+                    <input type="zip" class="form-control" type="email" placeholder="Correo Electrónico" name="correo"
+                        [(ngModel)]="representante.correo" required>
+                </div>
+                <div class="col-sm-6 form-group">
+                    <label for="Date">Dirección</label>
+                    <input type="Date" name="dob" class="form-control" type="text" placeholder="Dirección"
+                        name="direccion" maxlength="80" [(ngModel)]="representante.direccion" required
+                        #direccionInput="ngModel">
+                </div>
+                <div class="col-sm-6 form-group">
+                    <label for="State">Ocupación</label>
+                    <input type="address" class="form-control" type="text" placeholder="Ocupación" name="ocupacion"
+                        maxlength="30" [(ngModel)]="representante.ocupacion"
+                        onkeypress='return event.charCode >= 65 && event.charCode <= 90 || event.charCode >= 97 && event.charCode <= 122 || event.charCode == 32'
+                        required>
+                </div>
+                <div class="col-sm-3 form-group">
+                    <label for="tel">Teléfono Contacto</label>
+                    <input type="tel" name="phone" class="form-control" id="tel" placeholder="Teléfono Contacto"
+                        name="telefonoContacto" maxlength="10" [(ngModel)]="representante.telefonoContacto"
+                        onkeypress='return event.charCode >= 48 && event.charCode <= 57' required>
+                </div>
+                <div class="col-sm-3 form-group">
+                    <label for="tel">Teléfono Contacto (2)</label>
+                    <input type="tel" name="phone" class="form-control" id="tel" placeholder="Teléfono Contacto (2)"
+                        name="telefonoContacto2" maxlength="10" [(ngModel)]="representante.telefonoContacto2"
+                        onkeypress='return event.charCode >= 48 && event.charCode <= 57' required>
+                </div>
+                <div class="col-sm-12 mx-t3 mb-4">
+                    <h2 class="text-center text-info">Datos Estudiante</h2>
+                </div>
+                <div class="col-sm-6 form-group">
+                    <label for="name-f">Cédula Estuadiante</label>
+                    <input type="text" class="form-control" type="text" placeholder="Cédula" name="cedula"
+                        maxlength="10" [(ngModel)]="estudiante.cedula"
+                        onkeypress='return event.charCode >= 48 && event.charCode <= 57' required>
+                </div>
+                <div class="col-sm-6 form-group">
+                    <label for="name-l">Nombre</label>
+                    <input type="text" class="form-control" placeholder="Nombre" id="nombre" name="nombre"
+                        maxlength="40" [(ngModel)]="estudiante.nombre"
+                        onkeypress='return event.charCode >= 65 && event.charCode <= 90 || event.charCode >= 97 && event.charCode <= 122 || event.charCode == 32'
+                        required>
+                </div>
+                <div class="col-sm-6 form-group">
+                    <label for="email">Segundo Nombre</label>
+                    <input type="text" class="form-control" placeholder="Segundo Nombre" name="segundo_nombre"
+                        maxlength="40" [(ngModel)]="estudiante.segundo_nombre"
+                        onkeypress='return event.charCode >= 65 && event.charCode <= 90 || event.charCode >= 97 && event.charCode <= 122 || event.charCode == 32'
+                        required>
+                </div>
+                <div class="col-sm-6 form-group">
+                    <label for="address-1">Primer Apellido</label>
+                    <input type="address" class="form-control" placeholder="Primer Apellido" name="primer_apellido"
+                        maxlength="40" [(ngModel)]="estudiante.primer_apellido"
+                        onkeypress='return event.charCode >= 65 && event.charCode <= 90 || event.charCode >= 97 && event.charCode <= 122 || event.charCode == 32'
+                        required>
+                </div>
+                <div class="col-sm-6 form-group">
+                    <label for="address-2">Segundo Apellido</label>
+                    <input type="address" class="form-control" type="text" placeholder="Segundo Apellido"
+                        name="segundo_apellido" maxlength="40" [(ngModel)]="estudiante.segundo_apellido"
+                        onkeypress='return event.charCode >= 65 && event.charCode <= 90 || event.charCode >= 97 && event.charCode <= 122 || event.charCode == 32'
+                        required>
+                </div>
+                <div class="col-sm-3 form-group">
+                    <label for="sex">Género</label>
+                    <select class="custom-select custom-select" placeholder="Género" type="text"
+                        [(ngModel)]="estudiante.genero" id="genero" name="genero" required>
+                        <option selected>Seleccione su género</option>
+                        <option value="M">Masculino</option>
+                        <option value="F">Femenino</option>
+                    </select>
+                </div>
+                <div class="col-sm-3 form-group">
+                    <label for="Date">Fecha de Nacimiento</label>
+                    <input type="Date" name="dob" class="form-control" type="date" placeholder="Fecha Nacimiento"
+                        name="fecha_nacimiento" [(ngModel)]="estudiante.fecha_nacimiento" required>
+                </div>
+
+                <div class="col-sm-6 form-group">
+                    <label for="zip">Correo</label>
+                    <input type="zip" class="form-control" type="email" placeholder="Correo Electrónico" name="correo"
+                        [(ngModel)]="estudiante.correo" required>
+                </div>
+                <div class="col-sm-6 form-group">
+                    <label for="Date">Dirección</label>
+                    <input type="Date" name="dob" class="form-control" type="text" placeholder="Dirección"
+                        name="direccion" maxlength="80" [(ngModel)]="estudiante.direccion" required
+                        #direccionInput="ngModel">
+                </div>
+                <div class="col-sm-12 mx-t3 mb-4">
+                    <h2 class="text-center text-info">Curso</h2>
+                </div>
+                    <div class="col-sm-4 form-group" >
+                        <label for="ciclo"> Curso</label>
+                        <select id="ciclo" class="form-control" name="ciclo" [(ngModel)]="curso.ciclo">
+                            <option *ngFor="let ciclo of ciclos" [value]="ciclo.value">
+                                {{ciclo.text}}</option>
+                        </select>
                     </div>
-                    <div class="row">
-                        <div class="col-12 col-lg-8 m-auto">
-                            <form class="multisteps-form__form g-2 d-flex justify-content-center">
-                                <div class="multisteps-form__panel shadow p-4 rounded bg-white js-active"
-                                    data-animation="scaleIn">
-                                    <h3 class="multisteps-form__title">REPRESENTANTE</h3>
-                                    <div class="multisteps-form__content">
-                                        <div class="form-row mt-4">
-                                            <div class="col-12 col-sm-6">
-                                                <label>Cédula</label>
-                                                <input class="multisteps-form__input form-control" type="text"
-                                                    placeholder="Cédula" name="cedula" maxlength="10"
-                                                    [(ngModel)]="representante.cedula"
-                                                    onkeypress='return event.charCode >= 48 && event.charCode <= 57'
-                                                    required />
-                                            </div>
-                                            <div class="col-12 col-sm-6 mt-4 mt-sm-0">
-                                                <label>Nombre</label>
-                                                <input class="multisteps-form__input form-control" type="text"
-                                                    placeholder="Nombre" id="nombre" name="nombre" maxlength="40"
-                                                    [(ngModel)]="representante.nombre"
-                                                    onkeypress='return event.charCode >= 65 && event.charCode <= 90 || event.charCode >= 97 && event.charCode <= 122 || event.charCode == 32'
-                                                    required />
-                                            </div>
-                                        </div>
-                                        <div class="form-row mt-4">
-                                            <div class="col-12 col-sm-6">
-                                                <label>Segundo Nombre</label>
-                                                <input class="multisteps-form__input form-control" type="text"
-                                                    placeholder="Segundo Nombre" name="segundo_nombre" maxlength="40"
-                                                    [(ngModel)]="representante.segundo_nombre"
-                                                    onkeypress='return event.charCode >= 65 && event.charCode <= 90 || event.charCode >= 97 && event.charCode <= 122 || event.charCode == 32'
-                                                    required />
-                                            </div>
-                                            <div class="col-12 col-sm-6 mt-4 mt-sm-0">
-                                                <label>Primer Apellido</label>
-                                                <input class="multisteps-form__input form-control" type="text"
-                                                    placeholder="Primer Apellido" name="primer_apellido" maxlength="40"
-                                                    [(ngModel)]="representante.primer_apellido"
-                                                    onkeypress='return event.charCode >= 65 && event.charCode <= 90 || event.charCode >= 97 && event.charCode <= 122 || event.charCode == 32'
-                                                    required />
-                                            </div>
-                                        </div>
-                                        <div class="form-row mt-4">
-                                            <div class="col-12 col-sm-6">
-                                                <label>Segundo Apellido</label>
-                                                <input class="multisteps-form__input form-control" type="text"
-                                                    placeholder="Segundo Apellido" name="segundo_apellido"
-                                                    maxlength="40" [(ngModel)]="representante.segundo_apellido"
-                                                    onkeypress='return event.charCode >= 65 && event.charCode <= 90 || event.charCode >= 97 && event.charCode <= 122 || event.charCode == 32'
-                                                    required />
-                                            </div>
-                                            <div class="gender-box">
-                                                <h3>Género</h3>
-                                                <div class="col-12 col-sm-6 mt-4 mt-sm-0">
-                                                    <select class="custom-select custom-select" placeholder="Género"
-                                                        type="text" [(ngModel)]="representante.genero" id="genero"
-                                                        name="genero" required>
-                                                        <option selected>Seleccione su género</option>
-                                                        <option value="M">Masculino</option>
-                                                        <option value="F">Femenino</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="form-row mt-4">
-                                            <div class="col-12 col-sm-6 mt-4 mt-sm-0">
-                                                <label>Fecha Nacimiento</label>
-                                                <input class="multisteps-form__input form-control" type="date"
-                                                    placeholder="Fecha Nacimiento" name="fecha_nacimiento"
-                                                    [(ngModel)]="representante.fecha_nacimiento" required />
-                                            </div>
-                                            <div class="col-12 col-sm-6 mt-4 mt-sm-0">
-                                                <label>Correo Electrónico</label>
-                                                <input class="multisteps-form__input form-control" type="email"
-                                                    placeholder="Correo Electrónico" name="correo"
-                                                    [(ngModel)]="representante.correo" class={{verfCorreo}}
-                                                    (ngModelChange)="validarCorreo()" required />
-                                            </div>
-                                        </div>
-                                        <div class="form-row mt-4">
-                                            <div class="col-12 col-sm-6 mt-4 mt-sm-0">
-                                                <label>Dirección</label>
-                                                <input class="multisteps-form__input form-control" type="text"
-                                                    placeholder="Dirección" name="direccion" maxlength="80"
-                                                    [(ngModel)]="representante.direccion" required
-                                                    #direccionInput="ngModel" />
-                                            </div>
-                                            <div class="col-12 col-sm-6 mt-4 mt-sm-0">
-                                                <label>Ocupación</label>
-                                                <input class="multisteps-form__input form-control" type="text"
-                                                    placeholder="Ocupación" name="ocupacion" maxlength="30"
-                                                    [(ngModel)]="representante.ocupacion"
-                                                    onkeypress='return event.charCode >= 65 && event.charCode <= 90 || event.charCode >= 97 && event.charCode <= 122 || event.charCode == 32'
-                                                    required />
-                                            </div>
-                                        </div>
-                                        <div class="form-row mt-4">
-                                            <div class="col-12 col-sm-6 mt-4 mt-sm-0">
-                                                <label>Teléfono Contacto</label>
-                                                <input type="tel" class="multisteps-form__input form-control" type="tel"
-                                                    placeholder="Teléfono Contacto" name="telefonoContacto"
-                                                    maxlength="10" [(ngModel)]="representante.telefonoContacto"
-                                                    onkeypress='return event.charCode >= 48 && event.charCode <= 57'
-                                                    required />
-                                            </div>
-                                            <div class="col-12 col-sm-6 ">
-                                                <label>Teléfono Contacto 2</label>
-                                                <input type="tel" class="multisteps-form__input form-control"
-                                                    placeholder="Teléfono Contacto 2" name="telefonoContacto2"
-                                                    maxlength="10" [(ngModel)]="representante.telefonoContacto2"
-                                                    onkeypress='return event.charCode >= 48 && event.charCode <= 57'
-                                                    required />
-                                            </div>
-                                        </div>
-                                        <div class="button-row d-flex mt-4">
-                                            <button class="btn btn-primary ml-auto js-btn-next" type="button"
-                                                title="Next"><i class="fas fa-arrow-right"></i> Siguiente</button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="multisteps-form__panel shadow p-4 rounded bg-white"
-                                    data-animation="scaleIn">
-                                    <h3 class="multisteps-form__title">ESTUDIANTE</h3>
-                                    <div class="multisteps-form__content">
-                                        <div class="form-row mt-4">
-                                            <div class="col-12 col-sm-6">
-                                                <label>Cédula</label>
-                                                <input class="multisteps-form__input form-control" type="text"
-                                                    placeholder="Cédula" name="cedula" maxlength="10"
-                                                    [(ngModel)]="estudiante.cedula"
-                                                    onkeypress='return event.charCode >= 48 && event.charCode <= 57'
-                                                    required />
-                                            </div>
-                                            <div class="col-12 col-sm-6 mt-4 mt-sm-0">
-                                                <label>Nombre</label>
-                                                <input class="multisteps-form__input form-control" type="text"
-                                                    placeholder="Nombre" name="nombre" maxlength="40"
-                                                    [(ngModel)]="estudiante.nombre"
-                                                    onkeypress='return event.charCode >= 65 && event.charCode <= 90 || event.charCode >= 97 && event.charCode <= 122 || event.charCode == 32'
-                                                    required />
-                                            </div>
-                                        </div>
-                                        <div class="form-row mt-4">
-                                            <div class="col-12 col-sm-6">
-                                                <label>Segundo Nombre</label>
-                                                <input class="multisteps-form__input form-control" type="text"
-                                                    placeholder="Segundo Nombre" name="segundo_nombre" maxlength="40"
-                                                    [(ngModel)]="estudiante.segundo_nombre"
-                                                    onkeypress='return event.charCode >= 65 && event.charCode <= 90 || event.charCode >= 97 && event.charCode <= 122 || event.charCode == 32'
-                                                    required />
-                                            </div>
-                                            <div class="col-12 col-sm-6 mt-4 mt-sm-0">
-                                                <label>Primer Apellido</label>
-                                                <input class="multisteps-form__input form-control" type="text"
-                                                    placeholder="Primer Apellido" name="primer_apellido" maxlength="40"
-                                                    [(ngModel)]="estudiante.primer_apellido"
-                                                    onkeypress='return event.charCode >= 65 && event.charCode <= 90 || event.charCode >= 97 && event.charCode <= 122 || event.charCode == 32'
-                                                    required />
-                                            </div>
-                                        </div>
-                                        <div class="form-row mt-4">
-                                            <div class="col-12 col-sm-6 ">
-                                                <label>Segundo Apellido</label>
-                                                <input class="multisteps-form__input form-control" type="text"
-                                                    placeholder="Segundo Apellido" name="segundo_apellido"
-                                                    maxlength="40" [(ngModel)]="estudiante.segundo_apellido"
-                                                    onkeypress='return event.charCode >= 65 && event.charCode <= 90 || event.charCode >= 97 && event.charCode <= 122 || event.charCode == 32'
-                                                    required />
-                                            </div>
-                                            <div class="gender-box">
-                                                <h3>Género</h3>
-                                                <div class="col-12 col-sm-6 mt-4 mt-sm-0">
-                                                    <select class="custom-select custom-select" type="text"
-                                                        [(ngModel)]="estudiante.genero" id="genero" name="genero"
-                                                        required>
-                                                        <option selected>Seleccione su género</option>
-                                                        <option value="M">Masculino</option>
-                                                        <option value="F">Femenino</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="form-row mt-4">
-                                            <div class="col-12 col-sm-6 mt-4 mt-sm-0">
-                                                <label>Fecha Nacimiento</label>
-                                                <input class="multisteps-form__input form-control" type="date"
-                                                    placeholder="Fecha Nacimiento" name="fecha_nacimiento"
-                                                    [(ngModel)]="estudiante.fecha_nacimiento" required />
-                                            </div>
-                                            <div class="col-12 col-sm-6 ">
-                                                <label>Correo Electrónico</label>
-                                                <input class="multisteps-form__input form-control" type="email"
-                                                    placeholder="Correo Electrónico" name="correo"
-                                                    [(ngModel)]="estudiante.correo" class={{verfCorreo}}
-                                                    (ngModelChange)="validarCorreo2()" required />
-                                            </div>
-                                        </div>
-                                        <div class="form-row mt-4">
-                                            <div class="col-12 col-sm-6 mt-4 mt-sm-0">
-                                                <label>Dirección</label>
-                                                <input class="multisteps-form__input form-control" type="text"
-                                                    placeholder="Dirección" name="direccion" maxlength="80"
-                                                    [(ngModel)]="estudiante.direccion" required
-                                                    #direccionInput="ngModel" />
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="button-row d-flex mt-4 col-12">
-                                                <button class="btn btn-danger js-btn-prev" type="button" title="Prev"><i
-                                                        class="fas fa-arrow-left"></i> Atrás</button>
-                                                <button class="btn btn-primary ml-auto js-btn-next" type="button"
-                                                    title="Next"><i class="fas fa-arrow-right"></i> Siguiente</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="multisteps-form__panel shadow p-4 rounded bg-white"
-                                    data-animation="scaleIn">
-                                    <h3 class="multisteps-form__title">CURSO</h3>
-                                    <div class="multisteps-form__content">
-                                        <div class="form-row mt-4">
-                                            <div class="col-12 col-sm-6">
-                                                <label>Ciclo</label>
-                                                <label for="ciclo"> Curso</label>
-                                                <select id="ciclo" class="form-control" name="ciclo"
-                                                    [(ngModel)]="curso.ciclo">
-                                                    <option *ngFor="let ciclo of ciclos" [value]="ciclo.value">
-                                                        {{ciclo.text}}</option>
-                                                </select>
-                                            </div>
-                                            <div class="col-12 col-sm-6 mt-4 mt-sm-0">
-                                                <label>Paralelo</label>
-                                                <select id="paralelo" class="form-control" name="paralelo">
-                                                    <option value="" disabled selected>Selecciona paralelo</option>
-                                                    <option value="A">A</option>
-                                                    <option value="B">B</option>
-                                                    <option value="C">C</option>
-                                                    <option value="D">D</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="button-row d-flex mt-4 col-12">
-                                                <button class="btn btn-danger js-btn-prev" type="button" title="Prev"><i
-                                                        class="fas fa-arrow-left"></i> Atrás</button>
-                                                <button class="btn btn-primary ml-auto js-btn-next" type="button"
-                                                    title="Next"><i class="fas fa-arrow-right"></i> Siguiente</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="multisteps-form__panel shadow p-4 rounded bg-white"
-                                    data-animation="scaleIn">
-                                    <h3 class="multisteps-form__title">DETALLE MATRÍCULA</h3>
-                                    <div class="multisteps-form__content">
-                                        <div class="form-row mt-4">
-                                            <label>Observaciones</label>
-                                            <textarea class="multisteps-form__textarea form-control"
-                                                placeholder="Observaciones"></textarea>
-                                        </div>
-                                        <div class="button-row d-flex mt-4">
-                                            <button class="btn btn-danger js-btn-prev" type="button" title="Prev"><i
-                                                    class="fas fa-arrow-left"></i> Atrás</button>
-                                            <button class="btn btn-success ml-auto" type="button" title="xd"
+                    <div class="col-sm-4 form-group" >
+                        
+                        <label for="ciclo"> Paralelo</label>
+                        <select id="ciclo" class="form-control" name="ciclo" [(ngModel)]="curso.paralelo">
+                            <option *ngFor="let paralelo of paralelos" [value]="paralelo.value">
+                                {{paralelo.text}}</option>
+                        </select>
+                    </div>
+                    <div class="col-sm-4 form-group">
+                        <label for="tel">Número de cupo</label>
+                        <input type="number" name="cupo" class="form-control" placeholder="# Cupos"
+                            name="cupo" maxlength="2" [(ngModel)]="curso.cupo"
+                            onkeypress='return event.charCode >= 48 && event.charCode <= 57' required>
+                    </div>
+                    <div class="col-sm-12 mx-t3 mb-4">
+                        <h2 class="text-center text-info">Detalle Matricula</h2>
+                    </div>
+                    <div class="col-sm-12 form-group">
+                        <label>Observaciones</label>
+                        <textarea class="multisteps-form__textarea form-control"
+                            placeholder="Observaciones"></textarea>
+                    </div>
+                    <button class="btn btn-success ml-auto" type="button" title="xd"
                                                 (click)="registrarMatricula()"><i class="fa fa-save"></i> Guardar
                                             </button>
-                                            <button class="btn btn-info ml-auto" type="button" title="ddddd"
-                                                [routerLink]="['/matricula/ver-matricula']"><i class="fa fa-eye"></i>
-                                                Ver matricula</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            </form>
+        </div>
+        <div class="box">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
         </div>
     </div>
 </body>
