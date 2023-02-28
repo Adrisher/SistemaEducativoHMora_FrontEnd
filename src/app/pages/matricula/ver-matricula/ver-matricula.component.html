@@ -1,0 +1,80 @@
+<div class="container">
+    <div class="content">
+        <div class="student-info">
+            <h1 class="student-name">Alfredo Humberto Mora</h1>
+            <h2 class="student-status">Estudiante</h2>
+            <p class="student-info">Nombre del estudiante</p>
+            <h2 class="student-date">Fecha</h2>
+            <p class="student-info">fecha</p>
+        </div>
+        <table class="table custom-table">
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Asignatura</th>
+                    <th scope="col">Docente</th>
+                    <th scope="col">Jornada</th>
+                    <th scope="col">Paralelo</th>
+                    <th scope="col">Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">x</th>
+                    <td>x</td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td>x</td>
+                    <td>
+                        <button type="button" class="btn btn-info" data-toggle="modal" data-target="#materiaModal">
+                            <i class="far fa-edit"></i>Editar
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- Modal -->
+        <div class="modal fade" id="materiaModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header bg-black">
+                        <h5 class="modal-title"><i class="fas fa-graduation-cap"></i> Matricula</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="form-group">
+                                <label for="docente">Docente:</label>
+                                <input type="text" class="custom-input" id="docente" name="docente"
+                                    placeholder="Docente" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="jornada">Jornada:</label>
+                                <input type="text" class="custom-input" id="jornada" name="jornada"
+                                    placeholder="Jornada" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="paralelo">Paralelo:</label>
+                                <select class="custom-select custom-select" id="paralelo" name="paralelo">
+                                    <option selected>Seleccione un paralelo</option>
+                                    <option value="A">A</option>
+                                    <option value="B">B</option>
+                                    <option value="C">C</option>
+                                    <option value="D">D</option>
+                                </select>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-success"><i class="fa fa-save"></i>Guardar</button>
+                        <button type="button" class="btn2 btn-secondary" data-dismiss="modal"> <i
+                                class="fa fa-times-circle"></i>Cancelar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

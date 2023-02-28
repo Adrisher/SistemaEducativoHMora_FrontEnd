@@ -1,0 +1,128 @@
+.container {
+    background-color: #dc0303;
+    padding-bottom: 30px;
+    height: 91vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.content {
+    max-width: 90%;
+    margin: 60px;
+    padding: 20px;
+    border: 2px solid #060606;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    flex-grow: 1;
+}
+
+
+
+.student-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.student-name {
+    font-size: 32px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.student-status {
+    font-size: 24px;
+    margin: 0;
+    color: #999;
+}
+
+.student-date {
+    font-size: 20px;
+    margin: 0;
+    color: #999;
+}
+
+.custom-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.custom-table th,
+.custom-table td {
+    padding: 8px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+.custom-table th {
+    background-color: #f2f2f2;
+}
+
+.custom-table th:first-child,
+.custom-table td:first-child {
+    text-align: center;
+}
+
+.custom-table th:last-child,
+.custom-table td:last-child {
+    text-align: center;
+}
+
+.btn {
+    display: inline-block;
+    padding: 8px 16px;
+    border-radius: 4px;
+    color: #fff;
+    font-size: 16px;
+    text-align: center;
+    text-decoration: none;
+    background-color: #007bff;
+    border: none;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #0069d9;
+}
+
+.btn-danger {
+    background-color: #dc3545;
+}
+
+.btn-danger:hover {
+    background-color: #c82333;
+}
+
+.modal-header {
+    background-color: #343a40;
+    color: #fff;
+    border-bottom: none;
+}
+
+.modal-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.modal-body {
+    padding: 20px;
+}
+
+.custom-input {
+    display: block;
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-bottom: 16px;
+    font-size: 16px;
+}
+
+.modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    padding: 20px;
+    border-top: none;
+}

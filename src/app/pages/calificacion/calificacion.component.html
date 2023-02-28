@@ -1,0 +1,37 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 mt-4">
+            <ul class="list-group">
+                <li style="border-bottom:2px solid grey; padding:10px;"
+                *ngFor="let calificaciones of lista_calificaciones"
+                class="listr-grop-item listr-grop-item-act"
+                (click)="openForEdit(calificaciones)"
+                [class.active]="calificaciones==selectedCalificacion"
+                >
+                <span class="badge badge-primary">{{calificaciones.id_calificacion}}</span>
+                {{calificaciones.calificacion}} - {{calificaciones.descripcion}} - {{calificaciones.fecha}}
+                </li>
+
+            </ul>
+            <div class="card mt-4">
+                <div class="card-body">
+                    <div class="card-title">
+                        Calificaciones
+                    </div>
+                    <div class="div form-group">
+                        <input type="text" [(ngModel)]="selectedCalificacion.calificacion" placeholder="Inserte calificacion" class="form-control">
+                    </div>
+                    <div class="div form-group">
+                        <input type="text"[(ngModel)]="selectedCalificacion.descripcion" placeholder="Inserte descripcion" class="form-control">
+                    </div>
+                    <button (click)="addOrEdit()"  class="btn btn-prymary">
+                        guardar
+                    </button>
+                </div>
+            </div>
+            <div class="col-md-4">
+
+            </div>
+        </div>
+    </div>
+</div>

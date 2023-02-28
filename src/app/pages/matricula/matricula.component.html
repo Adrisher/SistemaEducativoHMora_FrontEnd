@@ -1,0 +1,200 @@
+<body>
+    <div class="wrapper">
+        <div class="container">
+            <form class="row box8">
+                <div class="col-sm-12 mx-t3 mb-4">
+                    <h2 class="text-center text-info">Datos Representante</h2>
+                </div>
+                <div class="col-sm-6 form-group">
+                    <label for="name-f">Cédula Representante</label>
+                    <input type="text" class="form-control" type="text" placeholder="Cédula" name="cedula"
+                        maxlength="10" [(ngModel)]="representante.cedula"
+                        onkeypress='return event.charCode >= 48 && event.charCode <= 57' required>
+                </div>
+                <div class="col-sm-6 form-group">
+                    <label for="name-l">Nombre</label>
+                    <input type="text" class="form-control" placeholder="Nombre" id="nombre" name="nombre"
+                        maxlength="40" [(ngModel)]="representante.nombre"
+                        onkeypress='return event.charCode >= 65 && event.charCode <= 90 || event.charCode >= 97 && event.charCode <= 122 || event.charCode == 32'
+                        required>
+                </div>
+                <div class="col-sm-6 form-group">
+                    <label for="email">Segundo Nombre</label>
+                    <input type="text" class="form-control" placeholder="Segundo Nombre" name="segundo_nombre"
+                        maxlength="40" [(ngModel)]="representante.segundo_nombre"
+                        onkeypress='return event.charCode >= 65 && event.charCode <= 90 || event.charCode >= 97 && event.charCode <= 122 || event.charCode == 32'
+                        required>
+                </div>
+                <div class="col-sm-6 form-group">
+                    <label for="address-1">Primer Apellido</label>
+                    <input type="address" class="form-control" placeholder="Primer Apellido" name="primer_apellido"
+                        maxlength="40" [(ngModel)]="representante.primer_apellido"
+                        onkeypress='return event.charCode >= 65 && event.charCode <= 90 || event.charCode >= 97 && event.charCode <= 122 || event.charCode == 32'
+                        required>
+                </div>
+                <div class="col-sm-6 form-group">
+                    <label for="address-2">Segundo Apellido</label>
+                    <input type="address" class="form-control" type="text" placeholder="Segundo Apellido"
+                        name="segundo_apellido" maxlength="40" [(ngModel)]="representante.segundo_apellido"
+                        onkeypress='return event.charCode >= 65 && event.charCode <= 90 || event.charCode >= 97 && event.charCode <= 122 || event.charCode == 32'
+                        required>
+                </div>
+                <div class="col-sm-3 form-group">
+                    <label for="sex">Género</label>
+                    <select class="custom-select custom-select" placeholder="Género" type="text"
+                        [(ngModel)]="representante.genero" id="genero" name="genero" required>
+                        <option selected>Seleccione su género</option>
+                        <option value="M">Masculino</option>
+                        <option value="F">Femenino</option>
+                    </select>
+                </div>
+                <div class="col-sm-3 form-group">
+                    <label for="Date">Fecha de Nacimiento</label>
+                    <input type="Date" name="dob" class="form-control" type="date" placeholder="Fecha Nacimiento"
+                        name="fecha_nacimiento" [(ngModel)]="representante.fecha_nacimiento" required>
+                </div>
+
+                <div class="col-sm-6 form-group">
+                    <label for="zip">Correo</label>
+                    <input type="zip" class="form-control" type="email" placeholder="Correo Electrónico" name="correo"
+                        [(ngModel)]="representante.correo" required>
+                </div>
+                <div class="col-sm-6 form-group">
+                    <label for="Date">Dirección</label>
+                    <input type="Date" name="dob" class="form-control" type="text" placeholder="Dirección"
+                        name="direccion" maxlength="80" [(ngModel)]="representante.direccion" required
+                        #direccionInput="ngModel">
+                </div>
+                <div class="col-sm-6 form-group">
+                    <label for="State">Ocupación</label>
+                    <input type="address" class="form-control" type="text" placeholder="Ocupación" name="ocupacion"
+                        maxlength="30" [(ngModel)]="representante.ocupacion"
+                        onkeypress='return event.charCode >= 65 && event.charCode <= 90 || event.charCode >= 97 && event.charCode <= 122 || event.charCode == 32'
+                        required>
+                </div>
+                <div class="col-sm-3 form-group">
+                    <label for="tel">Teléfono Contacto</label>
+                    <input type="tel" name="phone" class="form-control" id="tel" placeholder="Teléfono Contacto"
+                        name="telefonoContacto" maxlength="10" [(ngModel)]="representante.telefonoContacto"
+                        onkeypress='return event.charCode >= 48 && event.charCode <= 57' required>
+                </div>
+                <div class="col-sm-3 form-group">
+                    <label for="tel">Teléfono Contacto (2)</label>
+                    <input type="tel" name="phone" class="form-control" id="tel" placeholder="Teléfono Contacto (2)"
+                        name="telefonoContacto2" maxlength="10" [(ngModel)]="representante.telefonoContacto2"
+                        onkeypress='return event.charCode >= 48 && event.charCode <= 57' required>
+                </div>
+                <div class="col-sm-12 mx-t3 mb-4">
+                    <h2 class="text-center text-info">Datos Estudiante</h2>
+                </div>
+                <div class="col-sm-6 form-group">
+                    <label for="name-f">Cédula Estuadiante</label>
+                    <input type="text" class="form-control" type="text" placeholder="Cédula" name="cedula"
+                        maxlength="10" [(ngModel)]="estudiante.cedula"
+                        onkeypress='return event.charCode >= 48 && event.charCode <= 57' required>
+                </div>
+                <div class="col-sm-6 form-group">
+                    <label for="name-l">Nombre</label>
+                    <input type="text" class="form-control" placeholder="Nombre" id="nombre" name="nombre"
+                        maxlength="40" [(ngModel)]="estudiante.nombre"
+                        onkeypress='return event.charCode >= 65 && event.charCode <= 90 || event.charCode >= 97 && event.charCode <= 122 || event.charCode == 32'
+                        required>
+                </div>
+                <div class="col-sm-6 form-group">
+                    <label for="email">Segundo Nombre</label>
+                    <input type="text" class="form-control" placeholder="Segundo Nombre" name="segundo_nombre"
+                        maxlength="40" [(ngModel)]="estudiante.segundo_nombre"
+                        onkeypress='return event.charCode >= 65 && event.charCode <= 90 || event.charCode >= 97 && event.charCode <= 122 || event.charCode == 32'
+                        required>
+                </div>
+                <div class="col-sm-6 form-group">
+                    <label for="address-1">Primer Apellido</label>
+                    <input type="address" class="form-control" placeholder="Primer Apellido" name="primer_apellido"
+                        maxlength="40" [(ngModel)]="estudiante.primer_apellido"
+                        onkeypress='return event.charCode >= 65 && event.charCode <= 90 || event.charCode >= 97 && event.charCode <= 122 || event.charCode == 32'
+                        required>
+                </div>
+                <div class="col-sm-6 form-group">
+                    <label for="address-2">Segundo Apellido</label>
+                    <input type="address" class="form-control" type="text" placeholder="Segundo Apellido"
+                        name="segundo_apellido" maxlength="40" [(ngModel)]="estudiante.segundo_apellido"
+                        onkeypress='return event.charCode >= 65 && event.charCode <= 90 || event.charCode >= 97 && event.charCode <= 122 || event.charCode == 32'
+                        required>
+                </div>
+                <div class="col-sm-3 form-group">
+                    <label for="sex">Género</label>
+                    <select class="custom-select custom-select" placeholder="Género" type="text"
+                        [(ngModel)]="estudiante.genero" id="genero" name="genero" required>
+                        <option selected>Seleccione su género</option>
+                        <option value="M">Masculino</option>
+                        <option value="F">Femenino</option>
+                    </select>
+                </div>
+                <div class="col-sm-3 form-group">
+                    <label for="Date">Fecha de Nacimiento</label>
+                    <input type="Date" name="dob" class="form-control" type="date" placeholder="Fecha Nacimiento"
+                        name="fecha_nacimiento" [(ngModel)]="estudiante.fecha_nacimiento" required>
+                </div>
+
+                <div class="col-sm-6 form-group">
+                    <label for="zip">Correo</label>
+                    <input type="zip" class="form-control" type="email" placeholder="Correo Electrónico" name="correo"
+                        [(ngModel)]="estudiante.correo" required>
+                </div>
+                <div class="col-sm-6 form-group">
+                    <label for="Date">Dirección</label>
+                    <input type="Date" name="dob" class="form-control" type="text" placeholder="Dirección"
+                        name="direccion" maxlength="80" [(ngModel)]="estudiante.direccion" required
+                        #direccionInput="ngModel">
+                </div>
+                <div class="col-sm-12 mx-t3 mb-4">
+                    <h2 class="text-center text-info">Curso</h2>
+                </div>
+                    <div class="col-sm-4 form-group" >
+                        <label for="ciclo"> Curso</label>
+                        <select id="ciclo" class="form-control" name="ciclo" [(ngModel)]="curso.ciclo">
+                            <option *ngFor="let ciclo of ciclos" [value]="ciclo.value">
+                                {{ciclo.text}}</option>
+                        </select>
+                    </div>
+                    <div class="col-sm-4 form-group" >
+                        
+                        <label for="ciclo"> Paralelo</label>
+                        <select id="ciclo" class="form-control" name="ciclo" [(ngModel)]="curso.paralelo">
+                            <option *ngFor="let paralelo of paralelos" [value]="paralelo.value">
+                                {{paralelo.text}}</option>
+                        </select>
+                    </div>
+                    <div class="col-sm-4 form-group">
+                        <label for="tel">Número de cupo</label>
+                        <input type="number" name="cupo" class="form-control" placeholder="# Cupos"
+                            name="cupo" maxlength="2" [(ngModel)]="curso.cupo"
+                            onkeypress='return event.charCode >= 48 && event.charCode <= 57' required>
+                    </div>
+                    <div class="col-sm-12 mx-t3 mb-4">
+                        <h2 class="text-center text-info">Detalle Matricula</h2>
+                    </div>
+                    <div class="col-sm-12 form-group">
+                        <label>Observaciones</label>
+                        <textarea class="multisteps-form__textarea form-control"
+                            placeholder="Observaciones"></textarea>
+                    </div>
+                    <button class="btn btn-success ml-auto" type="button" title="xd"
+                                                (click)="registrarMatricula()"><i class="fa fa-save"></i> Guardar
+                                            </button>
+            </form>
+        </div>
+        <div class="box">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+</body>
