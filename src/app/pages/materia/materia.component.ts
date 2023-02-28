@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { MateriaService } from 'src/app/services/materia.service';
 import { Materia } from './materia';
 import { FormBuilder, Validator, Validators } from '@angular/forms';
@@ -11,8 +11,19 @@ import { Router } from '@angular/router';
 })
 export class MateriaComponent {
 
+  @ViewChild('materiaModalRef') materiaModalRef: any;
+
   public materias: Materia[] = [];
   public materia = new Materia();
+  public busqueda: string;
+
+  editMateria(materia: Materia) {
+    this.materia.id_materia = materia.id_materia
+    this.materia.nombre = materia.nombre
+    this.materia.descripcion = materia.descripcion
+    this.materiaModalRef.nativeElement.querySelector('[name="nombre"]').value = materia.nombre;
+    this.materiaModalRef.nativeElement.querySelector('[name="descripcion"]').value = materia.descripcion;
+  }
 
 
   // materiaForm = this.fb.group({
@@ -22,33 +33,50 @@ export class MateriaComponent {
   //   descripcion: ['', [Validators.required]]
   // })
 
-  constructor(private materiaService: MateriaService, private router: Router,
+  constructor(private service: MateriaService, private router: Router,
     private fb: FormBuilder) { }
 
   ngOnInit(): void {
-    this.materiaService.get()
+    this.get()
+  }
+
+  get() {
+    this.service.get()
       .subscribe(response => this.materias = response);
   }
 
+  search(event: Event) {
+    const inputElement = event.target as HTMLInputElement;
+    const inputValue = inputElement.value;
+    this.service.search(inputValue)
+      .subscribe(response => {
+        this.materias = response;
+        console.log(response)
+      });
+  }
+
   deleteMateria(materia: Materia) {
-    this.materiaService.delete(materia.id_materia)
+    this.service.delete(materia.id_materia)
       .subscribe(response => {
         this.materias = this.materias.filter(m => m.id_materia != materia.id_materia)
     })
   }
 
   create() {
-    this.materiaService.create(this.materia)
+    this.service.create(this.materia)
       .subscribe(response => {
-        this.router.navigate(['materia'])
+        this.get();
+        //this.router.navigate(['materia'])
       })
+      
   }
 
   update() {
-    this.materiaService.update(this.materia)
+    this.service.update(this.materia.id_materia, this.materia)
       .subscribe(response => {
-      this.router.navigate(['materia'])
-    }) 
+        this.materia = new Materia();
+        this.get();
+      });
   }
 
   cleanObject() {

@@ -160,6 +160,7 @@ custom-table {
 .custom-table th:first-child,
 .custom-table td:first-child {
     border-left: none;
+    text-align: center;
 }
 
 .custom-table th:last-child,
@@ -179,6 +180,7 @@ custom-table {
 
 .custom-table th {
     font-weight: bold;
+    text-align: center;
 }
 
 .custom-table td {

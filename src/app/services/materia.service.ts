@@ -8,24 +8,30 @@ import { Materia } from '../pages/materia/materia';
 })
 export class MateriaService {
 
-  private url: string = 'http://localhost:8080/api/materias/';
+  private url: string = 'http://localhost:8080/hmora/materia/';
 
   constructor( private http: HttpClient ) { }
 
+  search(nombre: string): Observable<Materia[]> {
+    const url = `${this.url}buscar/?nombre=${nombre}`;
+    return this.http.get<Materia[]>(url);
+  }
+
   get(): Observable<Materia[]> {
-      return this.http.get<Materia[]>(this.url + 'listar');
+    const url = `${this.url}listar`;
+    return this.http.get<Materia[]>(url);
   }
 
   create(producto: Materia): Observable<Materia> {
-    return this.http.post<Materia>(this.url + 'guardar', producto);
+    return this.http.post<Materia>(this.url + 'crear', producto);
   }
 
   getOne(id: number): Observable<Materia> {
     return this.http.get<Materia>(this.url + id);
   }
 
-  update(materia: Materia): Observable<Materia> {
-    return this.http.put<Materia>(this.url + 'actualizar/' + materia.id_materia, materia);
+  update(id: number, materia: Materia): Observable<any> {
+    return this.http.put(`${this.url}actualizar/${id}`, materia);
   }
 
   delete(id: number): Observable<any> {
