@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { EstudianteService } from 'src/app/services/estudiante.service';
 import { RepresentanteService } from 'src/app/services/representante.service';
@@ -10,16 +10,38 @@ import { Representante } from './Representante';
     templateUrl: './estudiante.component.html',
     styleUrls: ['./estudiante.component.css']
 })
+
 export class EstudianteComponent {
+    @ViewChild('datosModalRef') datosModalRef: any;
 
     estudiantes: any[] = [];
-    estudiante: Estudiante = new Estudiante();
+    public estudiante = new Estudiante();
+    representante = new Representante();
+    public busqueda: string;
+
+    editDatos(estudiante: Estudiante) {
+        this.estudiante.id_estudiante = estudiante.id_estudiante
+        this.estudiante.correo = estudiante.correo
+        this.estudiante.direccion = estudiante.direccion
+        this.datosModalRef.nativeElement.querySelector('[name="correo"]').value = estudiante.correo;
+        this.datosModalRef.nativeElement.querySelector('[name="direccion"]').value = estudiante.direccion;
+    }
 
     constructor(private route: Router, private estudianteService: EstudianteService,
         private representanteService: RepresentanteService) { }
 
     ngOnInit(): void {
         this.listarEstudiantes();
+    }
+
+    search(event: Event) {
+        const inputElement = event.target as HTMLInputElement;
+        const inputValue = inputElement.value;
+        this.estudianteService.search(inputValue)
+            .subscribe(response => {
+                this.estudiantes = response;
+                console.log(response)
+            });
     }
 
     listarEstudiantes(): void {
@@ -30,7 +52,6 @@ export class EstudianteComponent {
             },
             (error) => {
                 console.error('Error al listar estudiantes:', error);
-                // Aquí se podría mostrar un mensaje de error más claro para el usuario
             }
         );
     }
@@ -40,80 +61,26 @@ export class EstudianteComponent {
             .subscribe(
                 (response) => {
                     console.log('Estudiante creado con éxito:', response);
-                    // Realizar cualquier acción necesaria con la respuesta
                 },
                 (error) => {
                     console.error('Error al crear estudiante:', error);
-                    // Realizar cualquier acción necesaria en caso de error
                 }
             );
     }
 
-    deleteStudent(id: number): void {
-        this.estudianteService.eliminarEstudiante(id).subscribe(
-            response => {
-                console.log('Estudiante eliminado correctamente', response);
-                this.estudiantes = this.estudiantes.filter(estudiante => estudiante.id !== id);
-            },
-            error => {
-                console.error('Error al eliminar el estudiante', error);
-            }
-        );
+    eliminarEstudiante(id: number) {
+        this.estudianteService.eliminarEstudiante(id).subscribe(() => {
+            alert('Estudiante eliminado');
+            this.estudiantes = this.estudiantes.filter((estudiante) => estudiante.id !== id);
+            this.listarEstudiantes()
+        });
     }
 
-    // getRepresentantes() {
-    //     this.representanteService.getAllRepresentantes().subscribe((data: Representante[]) => {
-    //         this.representantes = data;
-    //     });
-    // }
-
-    // crearRepresentante(representante: Representante) {
-
-    //     this.representanteService.createRepresentante(representante).subscribe((data: Representante) => {
-    //         console.log(data);
-    //         this.getRepresentantes();
-    //     });
-    // }
-
-    // eliminarRepresentante(id: number) {
-    //     this.representanteService.deleteRepresentante(id).subscribe((data: any) => {
-    //         console.log(data);
-    //         this.getRepresentantes();
-    //     });
-    // }
-
-    // actualizarRepresentante(id: number, representante: Representante) {
-    //     this.representanteService.updateRepresentante(id, representante).subscribe((data: any) => {
-    //         console.log(data);
-    //         this.getRepresentantes();
-    //     });
-    // }
-
-
-    // createStudent(): void {
-    //     this.estudianteService.createEstudiante(this.estudiante).subscribe(
-    //         response => {
-    //             console.log('Datos guardados correctamente', response);
-    //             this.estudiantes.push(response);
-    //         },
-    //         error => {
-    //             console.error('Error al guardar los datos', error);
-    //         }
-    //     );
-    // }
-
-    
-
-    // updateStudent(id: number, estudiante: Estudiante): void {
-    //     this.estudianteService.updateEstudiante(estudiante).subscribe(
-    //         response => {
-    //             console.log('Estudiante actualizado correctamente', response);
-    //             this.estudiantes = this.estudiantes.map(e => e.id === estudiante.id ? estudiante : e);
-    //         },
-    //         error => {
-    //             console.error('Error al actualizar el estudiante', error);
-    //         }
-    //     );
-    // }
-
+    actualizarEstudiante() {
+        this.estudianteService.updateEstudiante(this.estudiante.id_estudiante, this.estudiante)
+            .subscribe(response => {
+                this.estudiante = new Estudiante();
+                this.listarEstudiantes();
+            });
+    }
 }

@@ -1,92 +1,86 @@
 <body>
     <div class="wrapper">
-
-        
-            <div class="content">
-                <div class="search-container">
-                    <form action="#">
-                        <input type="text" placeholder="Buscar...">
-                        <button type="submit"><i class="fa fa-search"></i></button>
-                    </form>
-                </div>
-                <table class="table custom-table">
-                    <thead>
-                        <tr>
-                            
-                            <th scope="col">Cédula</th>
-                            <th scope="col">Nombre</th>
-                            <th scope="col">Apellido</th>
-                            <th scope="col">Correo</th>
-                            <th scope="col">Dirección</th>
-                            <th scope="col">Cédula Representante</th>
-                            <th scope="col">Nombre y Apellido</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr *ngFor="let estudiante of estudiantes">
-                            <td>{{estudiante.cedula}}</td>
-                            <td>{{estudiante.nombre}}</td>
-                            <td>{{estudiante.primer_apellido}}</td>
-                            <td>{{estudiante.correo}}</td>
-                            <td>{{estudiante.direccion}}</td>
-                            <td>{{estudiante.representante.cedula}}</td>
-                            <td>{{estudiante.representante.nombre}} {{estudiante.representante.primer_apellido}}</td>
-                            <td><button type="button" class="btn btn-info" data-toggle="modal"
-                                    data-target="#materiaModal"><i class="far fa-edit"></i>Editar</button></td>
-                            <td><button class="btn btn-danger" role="button"
-                                    (click)="deleteStudent(estudiante.id_estudiante)"><i
-                                        class="fa fa-trash"></i>Eliminar</button></td>
-                        </tr>
-                    </tbody>
-                </table>
-
-
-
-                <div class="modal fade" id="materiaModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-                    aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header bg-black">
-                                <h5 class="modal-title"><i class="fas fa-graduation-cap"></i> Edición de Estudiantes
-                                </h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div class="modal-body">
-                                <form>
-                                    <div class="form-group">
-                                        <label for="correo">Correo Estudiante:</label>
-                                        <input type="text" class="custom-input" id="correo" name="correo"
-                                            placeholder="Correo" required>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="correo">Correo Representante:</label>
-                                        <input type="text" class="custom-input" id="correo" name="correo"
-                                            placeholder="Correo" required>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="direccion">Ocupación:</label>
-                                        <input type="text" class="custom-input" id="direccion" name="direccion"
-                                            placeholder="Dirección" required>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="direccion">Dirección:</label>
-                                        <input type="text" class="custom-input" id="direccion" name="direccion"
-                                            placeholder="Dirección" required>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="submit" class="btn btn-success"><i
-                                                class="fa fa-save"></i>Guardar</button>
-                                        <button type="button" class="btn2 btn-secondary" data-dismiss="modal"> <i
-                                                class="fa fa-times-circle"></i>Cancelar</button>
-                                    </div>
-                                </form>
-                            </div>
+        <h1>ESTUDIANTES</h1>
+        <div class="content">
+            <div class="search-container">
+                <form action="#">
+                    <input type="text" placeholder="Buscar..." (input)="search($event)">
+                    <button type="submit"><i class="fa fa-search"></i></button>
+                </form>
+            </div>
+            <table class="table custom-table">
+                <thead>
+                    <tr>
+                        <th scope="col">Cédula</th>
+                        <th scope="col">Nombre y Apellido</th>
+                        <th scope="col">Correo</th>
+                        <th scope="col">Dirección</th>
+                        <th scope="col">Cédula Representante</th>
+                        <th scope="col">Nombre y Apellido</th>
+                        <th scope="col">Dirección</th>
+                        <th scope="col">Teléfono</th>
+                        <th scope="col">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let estudiante of estudiantes">
+                        <td>{{estudiante.cedula}}</td>
+                        <td>{{estudiante.nombre}} {{estudiante.primer_apellido}}</td>
+                        <td>{{estudiante.correo}}</td>
+                        <td>{{estudiante.direccion}}</td>
+                        <td>{{estudiante.representante.cedula}}</td>
+                        <td>{{estudiante.representante.nombre}} {{estudiante.representante.primer_apellido}}</td>
+                        <td>{{estudiante.representante.direccion}}</td>
+                        <td>{{estudiante.representante.telefonoContacto}}</td>
+                        <td><button type="button" class="btn btn-info" data-toggle="modal" data-target="#materiaModal"
+                                (click)="editDatos(estudiante)"><i class="far fa-edit"></i>
+                            </button>
+                            <button class="btn btn-danger" role="button"
+                                (click)="eliminarEstudiante(estudiante.id_estudiante)"><i class="fa fa-trash"></i>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="modal fade" id="materiaModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header bg-black">
+                            <h5 class="modal-title"><i class="fas fa-graduation-cap"></i> Edición de Estudiantes
+                            </h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form>
+                                <div class="form-group">
+                                    <label for="correo">Correo Estudiantil:</label>
+                                    <input type="text" class="custom-input" id="correo" name="correo"
+                                        placeholder="Correo" [(ngModel)]="estudiante.correo" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="direccion">Dirección:</label>
+                                    <input type="text" class="custom-input" id="direccion" name="direccion"
+                                        placeholder="Dirección" [(ngModel)]="estudiante.direccion" required>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="submit" class="btn btn-success" (click)="actualizarEstudiante()"
+                                        *ngIf="estudiante.id_estudiante" data-dismiss="modal"><i
+                                            class="fa fa-save"></i>Guardar</button>
+                                    <button type="submit" class="btn btn-success" (click)="crearEstudiante()"
+                                        *ngIf="!estudiante.id_estudiante" data-dismiss="modal"><i
+                                            class="fa fa-save"></i>Guardar</button>
+                                    <button type="button" class="btn2 btn-secondary" data-dismiss="modal"> <i
+                                            class="fa fa-times-circle"></i>Cancelar</button>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
 
         <div class="box">
             <div></div>

@@ -8,7 +8,8 @@ body {
     height: 100%;
     position: absolute;
     overflow: hidden;
-    background: linear-gradient(90deg, rgba(69, 90, 100, 0.849) 0%, rgba(41, 67, 78, 0.747) 35%, rgba(33, 51, 55, 0.733));}
+    background: linear-gradient(90deg, rgba(0, 20, 40, 0.849) 0%, rgba(0, 10, 20, 0.747) 35%, rgba(0, 5, 10, 0.733));
+}
 
 .box div {
     position: absolute;
@@ -17,6 +18,21 @@ body {
     background-color: transparent;
     border: 1px solid #FFFF;
     border-radius: 30%;
+}
+
+h1 {
+    text-align: center;
+    /* Centrar el texto */
+    font-size: 36px;
+    /* Tamaño de fuente */
+    font-weight: bold;
+    /* Grosor de la fuente */
+    color: #eddcc6;
+    /* Color del texto */
+    margin-top: 20px;
+    /* Espacio superior */
+    margin-bottom: 20px;
+    /* Espacio inferior */
 }
 
 .box div:nth-child(1) {
@@ -93,7 +109,7 @@ body {
 }
 .content {
     max-width: 1200px;
-    margin: 50px auto;
+    margin: 20px auto;
     border: 2px solid #060606;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     padding: 10px;
@@ -212,6 +228,10 @@ custom-table {
     border: 1px solid #ddd;
     border-radius: 3px;
     margin-bottom: 10px;
+}
+
+.btn-info {
+    margin-right: 5px;
 }
 
 .btn2 {

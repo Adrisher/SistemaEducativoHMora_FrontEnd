@@ -17,6 +17,11 @@ export class EstudianteService {
     return this.httpClient.get<Estudiante[]>(`${this.baseUrl}/listar/` + cedula);
   }
 
+  search(cedula: string): Observable<Estudiante[]> {
+    const url = `${this.baseUrl}/buscar/?cedula=${cedula}`;
+    return this.httpClient.get<Estudiante[]>(url);
+  }
+
   listarEstudiantes(): Observable<Estudiante[]> {
     return this.httpClient.get<Estudiante[]>(`${this.baseUrl}/listar`);
   }
@@ -32,23 +37,12 @@ export class EstudianteService {
       );
   }
 
-  eliminarEstudiante(id: number): Observable<void> {
-    const url = `${this.baseUrl}/eliminar/${id}`;
-    return this.httpClient.delete<void>(url).pipe(
-      catchError((error: HttpErrorResponse) => {
-        console.error('Error al eliminar estudiante:', error);
-        let mensajeError = 'Error al eliminar estudiante';
-        if (error.status === 404) {
-          mensajeError = 'No se encontró el estudiante a eliminar';
-        }
-        // Puedes lanzar un mensaje de error al usuario o realizar alguna otra acción aquí
-        throw mensajeError;
-      })
-    );
+  eliminarEstudiante(id: number): Observable<any> {
+    return this.httpClient.put(`${this.baseUrl}/eliminar/${id}`, {});
   }
 
-  actualizarEstudiante(estudiante: Estudiante): Observable<void> {
-    return this.httpClient.put<void>(`${this.baseUrl}/actualizar`, estudiante);
+  updateEstudiante(id: number, curso: Estudiante): Observable<any> {
+    return this.httpClient.put(`${this.baseUrl}actualizar/${id}`, curso);
   }
 
 

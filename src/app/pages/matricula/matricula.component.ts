@@ -69,6 +69,7 @@ export class MatriculaComponent {
             if(!data){
                 
             }
+            this.limpiarCampos();
         }
       })
   }

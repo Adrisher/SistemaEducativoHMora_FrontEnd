@@ -1,5 +1,6 @@
 <body>
     <div class="wrapper">
+        <h1>CURSOS</h1>
         <div class="content">
             <div class="search-container">
                 <button type="button" class="btn btn-primary mb-3" data-toggle="modal" data-target="#materiaModal">
@@ -19,8 +20,7 @@
                         <th scope="col">Ciclo</th>
                         <th scope="col">Cupo</th>
                         <th scope="col">Paralelo</th>
-                        <th scope="col">Editar</th>
-                        <th scope="col">Eliminar</th>
+                        <th scope="col">Acciones</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -31,12 +31,10 @@
                         <td>{{curso.paralelo}}</td>
                         <td>
                             <button type="button" class="btn btn-info" data-toggle="modal" data-target="#materiaModal">
-                                <i class="far fa-edit"></i>Editar
+                                <i class="far fa-edit"></i>
                             </button>
-                        </td>
-                        <td>
-                            <button class="btn btn-danger" role="button" (click)="eliminarCurso(curso.id_curso)"><i
-                                    class="fa fa-trash"></i>Eliminar
+                            <button class="btn btn-danger" role="button" (click)="eliminarCurso(curso.id_curso)">
+                                <i class="fa fa-trash"></i>
                             </button>
                         </td>
                     </tr>

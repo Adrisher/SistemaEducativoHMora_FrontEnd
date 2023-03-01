@@ -9,11 +9,11 @@ export class SidebarService {
     titulo: "Dashboard",
     icono: "nav-icon fas fa-tachometer-alt",
     submenu: [
-      {titulo: "Profesores" , url: "profesor", icnono: 'nav-icon fa fa-users'},
-      {titulo: "Materias" , url: "materia", icnono: 'nav-icon fa fa-cubes'},
-      {titulo: "Matriculas" , url: "matricula", icnono: 'nav-icon fa fa-user-circle'},
-      {titulo: "Cursos" , url: "curso", icnono: 'nav-icon fa fa-user-circle'},
-      {titulo: "Estudiantes" , url: "estudiante", icnono: 'nav-icon fa fa-user-circle'}
+      { titulo: "Profesores", url: "profesor", icono: 'far fa-user' },
+      { titulo: "Materias", url: "materia", icono: 'fa fa-book' },
+      { titulo: "Matriculas", url: "matricula", icono: 'far fa-file-alt' },
+      { titulo: "Cursos", url: "curso", icono: 'fas fa-building' },
+      { titulo: "Estudiantes", url: "estudiante", icono: 'fas fa-graduation-cap' }
     ]
   }]
 

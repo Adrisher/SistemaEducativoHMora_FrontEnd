@@ -8,7 +8,12 @@ body {
     height: 100%;
     position: absolute;
     overflow: hidden;
-    background: linear-gradient(90deg, rgba(69, 90, 100, 0.849) 0%, rgba(41, 67, 78, 0.747) 35%, rgba(33, 51, 55, 0.733));}
+    background: linear-gradient(90deg, rgba(0, 20, 40, 0.849) 0%, rgba(0, 10, 20, 0.747) 35%, rgba(0, 5, 10, 0.733));
+}
+
+.btn-info {
+    margin-right: 5px;
+}
 
 .box div {
     position: absolute;
@@ -93,12 +98,27 @@ body {
 }
 
 .content {
-    max-width: 1200px;
-    margin: 50px auto;
+    max-width: 1250px;
+    margin: 20px 15px;
     border: 2px solid #060606;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     padding: 10px;
     border-radius: 10px;
+}
+
+h1 {
+    text-align: center;
+    /* Centrar el texto */
+    font-size: 36px;
+    /* Tamaño de fuente */
+    font-weight: bold;
+    /* Grosor de la fuente */
+    color: #eddcc6;
+    /* Color del texto */
+    margin-top: 20px;
+    /* Espacio superior */
+    margin-bottom: 20px;
+    /* Espacio inferior */
 }
 
 .search-container {
@@ -182,7 +202,7 @@ custom-table {
 }
 
 .custom-table td {
-    font-size: 14px;
+    font-size: 12px;
 }
 
 .modal-title {

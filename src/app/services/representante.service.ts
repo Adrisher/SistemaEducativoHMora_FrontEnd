@@ -37,13 +37,16 @@ export class RepresentanteService {
       );
   }
 
-  updateRepresentante(id: number, representante: Representante): Observable<Representante> {
-    return this.httpClient.put<Representante>(`${this.url}/actualizar/${id}`, representante, this.httpOptions)
-      .pipe(
-        catchError((error) => {
-          console.error(`Error al actualizar representante con id ${id}:`, error);
-          return throwError(error);
-        })
-      );
+  // updateRepresentante(id: number, representante: Representante): Observable<any> {
+  //   return this.httpClient.put(`${this.url}/actualizar/${id}`, representante, this.httpOptions)
+  //     .pipe(
+  //       catchError((error) => {
+  //         console.error(`Error al actualizar representante con id ${id}:`, error);
+  //         return throwError(error);
+  //       })
+  //     );
+  // }
+  update(id: number, representante: Representante): Observable<any> {
+    return this.httpClient.put(`${this.url}actualizar/${id}`, representante);
   }
 }
