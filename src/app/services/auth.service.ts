@@ -18,7 +18,6 @@ export class AuthService {
     return this.http.post<any>(url, null);
   }
 
-  
   createUser(user: Usuario): Observable<Usuario> {
     {
       return this.http.post<Usuario>(this.url + '/registro', user)
@@ -31,3 +30,4 @@ export class AuthService {
     }
   }
 }
+
