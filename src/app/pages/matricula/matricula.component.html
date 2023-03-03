@@ -176,8 +176,14 @@
                     <h2 class="text-center text-info">Detalle Matricula</h2>
                 </div>
                 <div class="col-sm-12 form-group">
+                    <label for="periodo">Periodo</label>
+                    <select id="periodo" class="form-control" name="periodo" [(ngModel)]="selectedPeriodo">
+                        <option *ngFor="let periodo of periodos" [value]="periodo">{{periodo.fecha_inicio}} - {{periodo.fecha_fin}}</option>
+                    </select>
+                </div>
+                <div class="col-sm-12 form-group">
                     <label>Observaciones</label>
-                    <textarea class="multisteps-form__textarea form-control" placeholder="Observaciones"></textarea>
+                    <textarea class="multisteps-form__textarea form-control" placeholder="Observaciones" name="observaciones" [(ngModel)]="matricula.observaciones" required></textarea>
                 </div>
                 <button class="btn btn-success ml-auto" type="button" title="xd" (click)="registrarMatricula()"><i
                         class="fa fa-save"></i> Guardar

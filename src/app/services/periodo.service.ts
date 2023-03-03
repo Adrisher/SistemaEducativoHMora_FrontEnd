@@ -22,6 +22,12 @@ export class PeriodoService {
     return this.http.get<Periodo[]>(url);
   }
 
+  getPeriodos(): Observable<Periodo[]> {
+    const url = `${this.url}listarPeriodos`;
+    return this.http.get<Periodo[]>(url);
+  }
+
+
   create(producto: Periodo): Observable<Periodo> {
     return this.http.post<Periodo>(this.url + 'crear', producto);
   }
