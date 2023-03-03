@@ -1,3 +1,4 @@
+import { Usuario } from "src/app/pages/estudiante/Usuario";
 import { Representante } from "./Representante";
 
 export class Estudiante {
@@ -13,7 +14,7 @@ export class Estudiante {
     direccion: String;
     estado: boolean = true;
     representante: Representante;
-    id_usuario: any;
+    usuario: Usuario;
 
     
 

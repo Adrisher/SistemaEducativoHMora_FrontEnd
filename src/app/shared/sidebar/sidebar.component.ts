@@ -2,8 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { SidebarService } from 'src/app/services/sidebar.service';
-import { Usuario } from './usuario';
 import { StorageService } from 'src/app/services/storage.service';
+import { Usuario } from '../../pages/estudiante/Usuario';
 
 @Component({
   selector: 'app-sidebar',
@@ -62,6 +62,7 @@ export class SidebarComponent implements OnInit {
             submenu: [
               { titulo: "Profesores", url: "profesor", icono: 'far fa-user' },
               { titulo: "Materias", url: "materia", icono: 'fa fa-book' },
+              { titulo: "Matrículas", url: "matricula", icono: 'far fa-file-alt' },
               { titulo: "Cursos", url: "curso", icono: 'fas fa-building' },
               { titulo: "Estudiantes", url: "estudiante", icono: 'fas fa-graduation-cap' },
               { titulo: "Periodo", url: "periodo", icono: 'fa-solid fa-timeline-arrow' } 

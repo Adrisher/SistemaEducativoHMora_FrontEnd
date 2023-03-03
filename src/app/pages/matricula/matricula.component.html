@@ -152,7 +152,7 @@
                 </div>
                 <div class="col-sm-6 form-group">
                     <label for="ciclo">Curso</label>
-                    <select id="ciclo" class="form-control" name="ciclo" [(ngModel)]="selectedCurso"
+                    <select id="ciclo" class="form-control" name="ciclo" [(ngModel)]="ciclo"
                         (change)="cargarParalelos()">
                         <option value="PRIMERO">PRIMERO</option>
                         <option value="SEGUNDO">SEGUNDO</option>
@@ -168,7 +168,7 @@
                 </div>
                 <div class="col-sm-6 form-group">
                     <label for="paralelo">Paralelo</label>
-                    <select id="paralelo" class="form-control" name="paralelo" [(ngModel)]="selectedParalelo">
+                    <select id="paralelo" class="form-control" name="paralelo" [(ngModel)]="curso">
                         <option *ngFor="let curso of cursos" [value]="curso">{{ curso.paralelo }}</option>
                     </select>
                 </div>
@@ -177,7 +177,7 @@
                 </div>
                 <div class="col-sm-12 form-group">
                     <label for="periodo">Periodo</label>
-                    <select id="periodo" class="form-control" name="periodo" [(ngModel)]="selectedPeriodo">
+                    <select id="periodo" class="form-control" name="periodo" [(ngModel)]="periodo">
                         <option *ngFor="let periodo of periodos" [value]="periodo">{{periodo.fecha_inicio}} - {{periodo.fecha_fin}}</option>
                     </select>
                 </div>
