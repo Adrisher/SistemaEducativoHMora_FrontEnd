@@ -49,4 +49,12 @@ export class RepresentanteService {
   update(id: number, representante: Representante): Observable<any> {
     return this.httpClient.put(`${this.url}actualizar/${id}`, representante);
   }
+
+
+  //Buscar solo uno por cedula
+  buscarEstu(cedula: string): Observable<Representante> {
+    const url = `${this.url}/${cedula}`;
+    return this.httpClient.get<Representante>(url);
+  }
+
 }

@@ -11,9 +11,10 @@ export class SidebarService {
     submenu: [
       { titulo: "Profesores", url: "profesor", icono: 'far fa-user' },
       { titulo: "Materias", url: "materia", icono: 'fa fa-book' },
-      { titulo: "Matriculas", url: "matricula", icono: 'far fa-file-alt' },
+      { titulo: "Matrículas", url: "matricula", icono: 'far fa-file-alt' },
       { titulo: "Cursos", url: "curso", icono: 'fas fa-building' },
-      { titulo: "Estudiantes", url: "estudiante", icono: 'fas fa-graduation-cap' }
+      { titulo: "Estudiantes", url: "estudiante", icono: 'fas fa-graduation-cap' },
+      { titulo: "Periodo", url: "periodo", icono: 'fa-solid fa-timeline-arrow' } 
     ]
   }]
 

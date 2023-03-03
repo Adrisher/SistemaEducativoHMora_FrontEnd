@@ -55,5 +55,11 @@ export class CursoService {
   buscarByCurso(ciclo: string) {
     return this.httpClient.get<any[]>(`${this.baseUrl}/ciclo/${ciclo}`);
   }
+
+  search(filtro: string): Observable<Curso[]> {
+    const url = `${this.baseUrl}/buscar/?filtro=${filtro}`;
+    return this.httpClient.get<Curso[]>(url);
+  }
+  
 }
   
