@@ -12,6 +12,8 @@ import { RepresentanteService } from 'src/app/services/representante.service';
 import { MatriculaService } from 'src/app/services/matricula.service';
 import { Periodo } from '../periodo/periodo';
 import { PeriodoService } from 'src/app/services/periodo.service';
+import { Usuario } from 'src/app/pages/estudiante/Usuario';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-matricula',
@@ -22,26 +24,28 @@ export class MatriculaComponent {
 
   cursos: Curso[] = [];
   curso: Curso = new Curso;
-  selectedCurso: string;
-  selectedParalelo: string;
+  ciclo: string;
+  paralelo: string;
   paralelos: string[];
 
   estudiante: Estudiante = new Estudiante;
   matricula: Matricula = new Matricula;
   representante: Representante = new Representante;
-  
+  usuario: Usuario = new Usuario;
+
   periodos: Periodo[] = [];
   periodo: Periodo = new Periodo;
-  selectedPeriodo: string;
-  
 
-  
+
+
+
 
 
 
   constructor(private _CargarScripts: CargarScriptsService, private router: Router,
     private estudianteService: EstudianteService, private representanteService: RepresentanteService,
-    private cursoService: CursoService, private matriculaService: MatriculaService, private periodoService: PeriodoService) {
+    private cursoService: CursoService, private matriculaService: MatriculaService, private periodoService: PeriodoService,
+    private userService: AuthService) {
     _CargarScripts.funciones(["matricula"]);
   }
 
@@ -51,41 +55,105 @@ export class MatriculaComponent {
 
 
 
+  // registrarMatricula() {
+  //   this.representanteService.createRepresentante(this.representante).subscribe(
+  //     data => {
+  //       if (!data) {
+  //       } else {
+  //         this.representante.id_representante = data.id_representante;
+  //         console.log(data);
+  //         this.usuario.nombreUsuario = this.estudiante.cedula;
+  //         this.usuario.contraseña = this.estudiante.cedula;
+  //         this.userService.createUser(this.usuario).subscribe(
+  //           response => {
+  //             console.log(response);
+  //             this.usuario.id_usuario = response.id_usuario;
+  //             if (!response) {
+  //             } else {
+  //               this.estudiante.representante.id_representante = this.representante.id_representante;
+  //               this.estudiante.usuario.id_usuario = this.usuario.id_usuario;
+  //               this.estudianteService.createEstudiante(this.estudiante).subscribe(
+  //                 result => {
+  //                   console.log(result);
+  //                   this.matricula.curso.id_curso = this.curso.id_curso;
+  //                   this.matricula.periodo.id_periodo = this.periodo.id_periodo;
+  //                   this.matricula.estudiante.id_estudiante = this.estudiante.id_estudiante;
+  //                   this.matriculaService.create(this.matricula).subscribe(
+  //                     mat => {
+  //                       console.log(mat);
+  //                       this.limpiarCampos()
+  //                     }
+  //                   )
+  //                 }
+  //               )
+  //             }
+  //           }
+  //         )
+  //       }
+  //     }
+  //   )
+  // }
   registrarMatricula() {
-    this.representanteService.createRepresentante(this.representante).subscribe(
-      data => {
+    this.representanteService.createRepresentante(this.representante).subscribe(data => {
+      if (data) {
         this.representante.id_representante = data.id_representante;
         console.log(data);
-        if (!data) {
-        } else {
-          this.estudiante.representante = this.representante;
-          this.estudianteService.createEstudiante(this.estudiante).subscribe(
-            result => {
-              console.log(result);
-            })
-          if (!data) {
-              
-            
+        this.usuario.nombreUsuario = this.estudiante.cedula;
+        this.usuario.contraseña = this.estudiante.cedula;
+        this.userService.createUser(this.usuario).subscribe(userResponse => {
+          console.log(userResponse);
+          if (userResponse) {
+            this.estudiante.representante = this.representante;
+            this.estudiante.usuario = userResponse;
+            this.estudianteService.createEstudiante(this.estudiante).subscribe(estudianteResponse => {
+              console.log(estudianteResponse);
+              if (estudianteResponse) {
+                this.matricula.curso.id_curso = this.curso.id_curso;
+                this.matricula.periodo.id_periodo = this.periodo.id_periodo;
+                this.matricula.estudiante.id_estudiante = estudianteResponse.id_estudiante;
+                this.matriculaService.create(this.matricula).subscribe(matriculaResponse => {
+                  console.log(matriculaResponse);
+                  this.limpiarCampos();
+                });
+              }
+            });
           }
-          this.limpiarCampos();
-        }
-      })
+        });
+      }
+    });
   }
 
 
+  //   registrarUserEstudentRepre() {
+  //     this.representanteService.createRepresentante(this.representante).subscribe(
+  //       dataRepre => {
+  //         console.log(dataRepre);
+  //         this.representante = dataRepre;
+  //       }
+  //       this.usuario.nombreUsuario = this.estudiante.cedula;
+  //                 this.usuario.contraseña = this.estudiante.cedula;
+  //       this.userService.createUser
+
+  //     )
+
+
+  //   }
+  // }
+
+
   cargarParalelos() {
-    this.cursoService.buscarByCurso(this.selectedCurso).subscribe(
+    this.cursoService.buscarByCurso(this.ciclo).subscribe(
       cursos => this.cursos = cursos
     );
   }
 
-  
-  cargarPeriodos(){
-    this.periodoService.getPeriodos().subscribe( 
-        periodos => this.periodos = periodos
+
+  cargarPeriodos() {
+    this.periodoService.getPeriodos().subscribe(
+      periodos => this.periodos = periodos
     );
   }
-  
+
 
 
 

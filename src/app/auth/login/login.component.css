@@ -1,26 +1,102 @@
-.form {
-  background-color: #f8f9fa;
-  padding: 20px;
-  border-radius: 5px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+.wrapper {
+  width: 95.4%;
+  height: 100%;
+  position: absolute;
+  overflow: hidden;
+  background: linear-gradient(90deg, rgba(0, 20, 40, 0.849) 0%, rgba(0, 10, 20, 0.747) 35%, rgba(0, 5, 10, 0.733));
 }
 
-.form label {
-  font-size: 16px;
+.btn-info {
+  margin-right: 10px;
+}
+
+h1 {
+  text-align: center;
+  font-size: 36px;
   font-weight: bold;
-  margin-bottom: 5px;
-}
-
-.form input {
-  width: 100%;
-  height: 40px;
-  border-radius: 3px;
-  border: 1px solid #ccc;
-  padding: 10px;
-  font-size: 16px;
+  color: #f3d2a8;
+  margin-top: 20px;
   margin-bottom: 20px;
 }
 
-.form button {
-  margin-top: 20px;
+.box div {
+  position: absolute;
+  width: 38px;
+  height: 38px;
+  background-color: transparent;
+  border: 1px solid #FFFF;
+  border-radius: 30%;
+}
+
+.box div:nth-child(1) {
+  top: 12%;
+  left: 42%;
+  animation: animate 20s linear infinite;
+}
+
+.box div:nth-child(2) {
+  top: 70%;
+  left: 50%;
+  animation: animate 19s linear infinite;
+}
+
+.box div:nth-child(3) {
+  top: 17%;
+  left: 6%;
+  animation: animate 18s linear infinite;
+}
+
+.box div:nth-child(4) {
+  top: 20%;
+  left: 60%;
+  animation: animate 17s linear infinite;
+}
+
+.box div:nth-child(5) {
+  top: 80%;
+  left: 70%;
+  animation: animate 16s linear infinite;
+}
+
+.box div:nth-child(6) {
+  top: 40%;
+  left: 80%;
+  animation: animate 15s linear infinite;
+}
+
+.box div:nth-child(7) {
+  top: 35%;
+  left: 70%;
+  animation: animate 21s linear infinite;
+}
+
+.box div:nth-child(8) {
+  top: 80%;
+  left: 70%;
+  animation: animate 22s linear infinite;
+}
+
+.box div:nth-child(9) {
+  top: 90%;
+  left: 20%;
+  animation: animate 23s linear infinite;
+}
+
+.box div:nth-child(10) {
+  top: 40%;
+  left: 90%;
+  animation: animate 24s linear infinite;
+}
+
+@keyframes animate {
+  0% {
+      transform: scale(0) translateY(0) rotate(0);
+      opacity: 1;
+  }
+
+  100% {
+      transform: scale(1.3) translateY(-90px) rotate(360deg);
+      opacity: 1;
+  }
+
 }

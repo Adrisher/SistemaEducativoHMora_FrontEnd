@@ -1,13 +1,14 @@
 import { Curso } from "../curso/Curso";
 import { Estudiante } from "../estudiante/Estudiante";
+import { Periodo } from "../periodo/periodo";
 
 export class Matricula {
     id_matricula: number;
-    fecha: Date;
+    fecha: string;
     observaciones: string;
     curso: Curso;
     estudiante: Estudiante;
-    id_periodo: any;
+    periodo: Periodo;
 }
 
 
