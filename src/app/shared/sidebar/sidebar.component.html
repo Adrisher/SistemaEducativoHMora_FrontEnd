@@ -22,7 +22,7 @@
     <!-- Sidebar Menu -->
     <nav class="mt-2">
       <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-        <li class="nav-item" *ngFor="let item of menuItems">
+        <li class="nav-item" *ngFor="let item of menuPermitido">
           <a href="#" class="nav-link">
             <i class="{{item.icono}}"></i>
             <p class="ml-2">
@@ -37,6 +37,7 @@
                 <i class="{{subMenu.icono}}"></i>
                 <p class="ml-2">{{subMenu.titulo}}</p>
               </a>
+
             </li>
           </ul>
         </li>
