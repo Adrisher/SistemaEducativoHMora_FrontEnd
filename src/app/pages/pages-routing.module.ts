@@ -10,6 +10,7 @@ import { CursoComponent } from './curso/curso.component';
 import { EstudianteComponent } from './estudiante/estudiante.component';
 import { VerMatriculaComponent } from './matricula/ver-matricula/ver-matricula.component';
 import { PeriodoComponent } from './periodo/periodo.component';
+import { AsignacionesComponent } from './asignaciones/asignaciones.component';
 
 const routes: Routes = [
   {path: 'dashboard', component: PagesComponent,
@@ -21,7 +22,9 @@ const routes: Routes = [
     {path: 'curso', component: CursoComponent, data: {titulo:"Curso"}},
     {path: 'estudiante', component: EstudianteComponent, data: {titulo:"Estudiante"}},
     {path: 'ver-matricula', component: VerMatriculaComponent, data: {titulo:"Matricula"}},
-    {path: 'periodo', component: PeriodoComponent, data: {titulo:"Periodo"}}
+    {path: 'periodo', component: PeriodoComponent, data: {titulo:"Periodo"}},
+    {path: 'asignaciones', component: AsignacionesComponent, data: {titulo:"Docente - Materia - Curso"}}
+
 
     ]
   }

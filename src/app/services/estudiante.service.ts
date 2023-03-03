@@ -42,7 +42,7 @@ export class EstudianteService {
   }
 
   updateEstudiante(id: number, curso: Estudiante): Observable<any> {
-    return this.httpClient.put(`${this.baseUrl}actualizar/${id}`, curso);
+    return this.httpClient.put(`${this.baseUrl}/actualizar/${id}`, curso);
   }
 
 
@@ -51,7 +51,5 @@ export class EstudianteService {
     const url = `${this.baseUrl}/${cedula}`;
     return this.httpClient.get<Estudiante>(url);
   }
-
- 
 
 }

@@ -53,46 +53,6 @@ export class MatriculaComponent {
     this.cargarPeriodos();
   }
 
-
-
-  // registrarMatricula() {
-  //   this.representanteService.createRepresentante(this.representante).subscribe(
-  //     data => {
-  //       if (!data) {
-  //       } else {
-  //         this.representante.id_representante = data.id_representante;
-  //         console.log(data);
-  //         this.usuario.nombreUsuario = this.estudiante.cedula;
-  //         this.usuario.contraseña = this.estudiante.cedula;
-  //         this.userService.createUser(this.usuario).subscribe(
-  //           response => {
-  //             console.log(response);
-  //             this.usuario.id_usuario = response.id_usuario;
-  //             if (!response) {
-  //             } else {
-  //               this.estudiante.representante.id_representante = this.representante.id_representante;
-  //               this.estudiante.usuario.id_usuario = this.usuario.id_usuario;
-  //               this.estudianteService.createEstudiante(this.estudiante).subscribe(
-  //                 result => {
-  //                   console.log(result);
-  //                   this.matricula.curso.id_curso = this.curso.id_curso;
-  //                   this.matricula.periodo.id_periodo = this.periodo.id_periodo;
-  //                   this.matricula.estudiante.id_estudiante = this.estudiante.id_estudiante;
-  //                   this.matriculaService.create(this.matricula).subscribe(
-  //                     mat => {
-  //                       console.log(mat);
-  //                       this.limpiarCampos()
-  //                     }
-  //                   )
-  //                 }
-  //               )
-  //             }
-  //           }
-  //         )
-  //       }
-  //     }
-  //   )
-  // }
   registrarMatricula() {
     this.representanteService.createRepresentante(this.representante).subscribe(data => {
       if (data) {
@@ -124,21 +84,7 @@ export class MatriculaComponent {
   }
 
 
-  //   registrarUserEstudentRepre() {
-  //     this.representanteService.createRepresentante(this.representante).subscribe(
-  //       dataRepre => {
-  //         console.log(dataRepre);
-  //         this.representante = dataRepre;
-  //       }
-  //       this.usuario.nombreUsuario = this.estudiante.cedula;
-  //                 this.usuario.contraseña = this.estudiante.cedula;
-  //       this.userService.createUser
 
-  //     )
-
-
-  //   }
-  // }
 
 
   cargarParalelos() {

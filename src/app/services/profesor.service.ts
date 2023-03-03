@@ -37,8 +37,12 @@ getProfesorCedula(cedula: String): Observable<Profesor> {
   return this.httpClient.get<Profesor>(this.url + '/listarid/'+cedula);  
 }
 
-deleteMyRecord(id: number): Observable<any> {
-  return this.httpClient.delete(this.url+'/eliminar/'+id);
+// deleteMyRecord(id: number): Observable<any> {
+//   return this.httpClient.delete(this.url+'/eliminar/'+id);
+// }
+eliminarEstudiante(id: number): Observable<any> {
+  return this.httpClient.put(`${this.url}/eliminar/${id}`, {});
+}
 }
 
-}
+

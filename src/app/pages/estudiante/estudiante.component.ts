@@ -19,13 +19,7 @@ export class EstudianteComponent {
     representante = new Representante();
     public busqueda: string;
 
-    editDatos(estudiante: Estudiante) {
-        this.estudiante.id_estudiante = estudiante.id_estudiante
-        this.estudiante.correo = estudiante.correo
-        this.estudiante.direccion = estudiante.direccion
-        this.datosModalRef.nativeElement.querySelector('[name="correo"]').value = estudiante.correo;
-        this.datosModalRef.nativeElement.querySelector('[name="direccion"]').value = estudiante.direccion;
-    }
+    
 
     constructor(private route: Router, private estudianteService: EstudianteService,
         private representanteService: RepresentanteService) { }
@@ -34,6 +28,14 @@ export class EstudianteComponent {
         this.listarEstudiantes();
     }
 
+
+    editDatos(estudiante: Estudiante) {
+        this.estudiante.id_estudiante = estudiante.id_estudiante
+        this.estudiante.correo = estudiante.correo
+        this.estudiante.direccion = estudiante.direccion
+        this.datosModalRef.nativeElement.querySelector('[name="correo"]').value = estudiante.correo;
+        this.datosModalRef.nativeElement.querySelector('[name="direccion"]').value = estudiante.direccion;
+    }
     search(event: Event) {
         const inputElement = event.target as HTMLInputElement;
         const inputValue = inputElement.value;

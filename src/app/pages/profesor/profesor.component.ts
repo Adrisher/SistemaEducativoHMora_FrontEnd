@@ -12,7 +12,7 @@ import Swal from 'sweetalert2';
 export class ProfesorComponent {
   @ViewChild('materiaModalRef') materiaModalRef: any;
 
-  profesores: Profesor[]=[];
+  profesores: any[]=[];
   profesor: Profesor = new Profesor();
 
 
@@ -21,9 +21,7 @@ export class ProfesorComponent {
 
 
   ngOnInit(): void {
-    this.profesorService.getAllProfesor().subscribe(
-      profesores => this.profesores = profesores
-    );
+    this.get();
   }
 
   search(event: Event) {
@@ -37,9 +35,9 @@ export class ProfesorComponent {
   }
 
   get() {
-    this.profesorService.getAllProfesor()
-      .subscribe(response => this.profesor = response);
-
+    this.profesorService.getAllProfesor().subscribe(
+      profesores => this.profesores = profesores
+    );
   }
 
   editProfesor(profesor: Profesor) {
@@ -91,12 +89,13 @@ export class ProfesorComponent {
       });
   }
 
-  deleteRecord(id: number) {
-    this.profesorService.deleteMyRecord(id)
-      .subscribe(() => {
-        this.profesores = this.profesores.filter(record => record.id_profesor !== id);
-      });
-  }
+  eliminarProfesor(id: number) {
+    this.profesorService.eliminarEstudiante(id).subscribe(() => {
+        alert('Profesor eliminado');
+        this.profesores = this.profesores.filter((profesor) => profesor.id !== id);
+        this.get()
+    });
+}
 
   limpiarCampos() {
     this.profesor.nombre = '';
