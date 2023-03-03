@@ -66,7 +66,7 @@ export class CursoComponent {
                 }
             );
     }
-
+    
     limpiarCampos() {
         console.log("Entro a limpiar")
         this.curso.ciclo = null;

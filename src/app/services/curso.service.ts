@@ -43,7 +43,6 @@ export class CursoService {
         if (error.status === 404) {
           mensajeError = 'No se encontró el curso a eliminar';
         }
-        // Puedes lanzar un mensaje de error al usuario o realizar alguna otra acción aquí
         throw mensajeError;
       })
     );
@@ -51,6 +50,10 @@ export class CursoService {
 
   actualizarCurso(curso: Curso): Observable<void> {
     return this.httpClient.put<void>(`${this.baseUrl}/actualizar`, curso);
+  }
+
+  buscarByCurso(ciclo: string) {
+    return this.httpClient.get<any[]>(`${this.baseUrl}/ciclo/${ciclo}`);
   }
 }
   

@@ -4,7 +4,7 @@ body {
 }
 
 .wrapper {
-    width: 95%;
+    width: 95.4%;
     height: 100%;
     position: absolute;
     overflow: hidden;
@@ -98,8 +98,8 @@ body {
 }
 
 .content {
-    max-width: 1250px;
-    margin: 20px 15px;
+    max-width: 1450px;
+    margin: 20px 40px;
     border: 2px solid #060606;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     padding: 10px;
@@ -108,17 +108,11 @@ body {
 
 h1 {
     text-align: center;
-    /* Centrar el texto */
     font-size: 36px;
-    /* Tamaño de fuente */
     font-weight: bold;
-    /* Grosor de la fuente */
-    color: #eddcc6;
-    /* Color del texto */
+    color: #f3d2a8;
     margin-top: 20px;
-    /* Espacio superior */
     margin-bottom: 20px;
-    /* Espacio inferior */
 }
 
 .search-container {
@@ -137,10 +131,12 @@ h1 {
 .search-container input[type="text"] {
     width: 300px;
     padding: 10px;
-    border: none;
     border-radius: 20px;
     margin-right: 10px;
-}
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    outline: none;
+    border: 1px solid black;
+    }
 
 .search-container button[type="submit"] {
     background-color: #007bff;
@@ -159,22 +155,24 @@ custom-table {
 
 .custom-table th,
 .custom-table td {
-    border: 1px solid #ddd;
-    padding: 8px;
+    border: 1px solid #000000;
+    padding: 5px;
     text-align: center;
 }
 
 .custom-table th {
     background-color: rgba(242, 242, 242, 0.5);
     font-weight: bold;
+    color: #000000;
 }
 
 .custom-table td {
-    font-size: 14px;
+    font-size: 16px;
+    color: #ffffff;
 }
 
 .custom-table tbody tr:nth-child(even) {
-    background-color: rgba(242, 242, 242, 0.5);
+    background-color: rgba(22, 15, 15, 0.5);
 }
 
 .custom-table th:first-child,
@@ -202,7 +200,7 @@ custom-table {
 }
 
 .custom-table td {
-    font-size: 12px;
+    font-size: 16px;
 }
 
 .modal-title {

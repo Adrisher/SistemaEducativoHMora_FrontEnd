@@ -16,25 +16,21 @@
             <table class="table custom-table">
                 <thead>
                     <tr>
-                        <th scope="col">ID</th>
-                        <th scope="col">Ciclo</th>
-                        <th scope="col">Cupo</th>
-                        <th scope="col">Paralelo</th>
-                        <th scope="col">Acciones</th>
+                        
+                        <th scope="col">CICLO</th>
+                        <th scope="col">CUPO</th>
+                        <th scope="col">PARALELO</th>
+                        <th scope="col">ACCIONES</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr *ngFor="let curso of cursos">
-                        <th scope="row">{{curso.id_curso}}</th>
                         <td>{{curso.ciclo}}</td>
                         <td>{{curso.cupo}}</td>
                         <td>{{curso.paralelo}}</td>
                         <td>
                             <button type="button" class="btn btn-info" data-toggle="modal" data-target="#materiaModal">
                                 <i class="far fa-edit"></i>
-                            </button>
-                            <button class="btn btn-danger" role="button" (click)="eliminarCurso(curso.id_curso)">
-                                <i class="fa fa-trash"></i>
                             </button>
                         </td>
                     </tr>

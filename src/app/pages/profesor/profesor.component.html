@@ -1,4 +1,4 @@
-<div class="card border-primary mb-1">
+<!-- <div class="card border-primary mb-1">
     <div class="my-1 text-left">
         <button type="button" class="btn btn-primary mb-3" data-toggle="modal" data-target="#materiaModal"> <i
           class="fa fa-plus"></i> Agregar</button> 
@@ -48,7 +48,7 @@
         </tbody>
     </table>
   </div>
-  <!-- Modal -->
+
   <div class="modal fade" id="materiaModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -103,9 +103,139 @@
                 <button type="button" class="btn2 btn-secondary" data-dismiss="modal"> <i
                     class="fa fa-times-circle"></i>Cancelar</button>
               </div>
-  
           </form>
         </div>
       </div>
     </div>
+    </div> -->
+
+<body>
+  <div class="wrapper">
+    <h1>PROFESORES</h1>
+    <div class="content">
+      <div class="search-container">
+        <button type="button" class="btn btn-primary mb-3" data-toggle="modal" data-target="#materiaModal">
+          <i class="fa fa-plus"></i> Agregar
+        </button>
+        <form action="#">
+          <input type="text" placeholder="Buscar...">
+          <button type="submit">
+            <i class="fa fa-search"></i>
+          </button>
+        </form>
+      </div>
+      <table class="table custom-table">
+        <thead>
+          <tr>
+            <th>CÉDULA</th>
+            <th>NOMBRE COMPLETO</th>
+            <th>F.NACIMIENTO</th>
+            <th>GÉNERO</th>
+            <th>DIRECCIÓN</th>
+            <th>CORREO E.</th>
+            <th>ÁREA</th>
+            <th>ACCIONES</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let profesor of profesores">
+            <td>{{profesor.cedula}}</td>
+            <td>{{profesor.nombre}} {{profesor.segundo_nombre}} {{profesor.primer_apellido}} {{profesor.segundo_apellido}}</td>
+            <td>{{profesor.fecha_nacimiento}}</td>
+            <td>{{profesor.genero}}</td>
+            <td>{{profesor.direccion}}</td>
+            <td>{{profesor.correo}}</td>
+            <td>{{profesor.area}}</td>
+            <td><button type="button" class="btn btn-info" data-toggle="modal" data-target="#materiaModal"
+                (click)="editProfesor(profesor)"><i class="far fa-edit"></i>
+              </button>
+              <button class="btn btn-danger" role="button"><i class="fa fa-trash"
+                  (click)="deleteRecord(profesor.id_profesor)"></i>
+              </button>
+            </td>
+        </tbody>
+      </table>
+      <div class="modal fade" id="materiaModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title"><i class="fa fa-building"></i> Agregar Docente</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true"><i class="fa fa-times"></i></span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form>
+                <div class="input-group mb-3">
+                  <input type="text" class="form-control" name="nombre" [(ngModel)]="profesor.nombre"
+                    placeholder="Nombre" required>
+                </div>
+                <div class="input-group mb-3">
+                  <input type="text" class="form-control" name="nombre1" [(ngModel)]="profesor.segundo_nombre"
+                    placeholder="Segundo Nombre" required>
+                </div>
+                <div class="input-group mb-3">
+                  <input type="text" class="form-control" name="apellido" [(ngModel)]="profesor.primer_apellido"
+                    placeholder="Apellido" required>
+                </div>
+                <div class="input-group mb-3">
+                  <input type="text" class="form-control" name="apellido1" [(ngModel)]="profesor.segundo_apellido"
+                    placeholder="Segundo Apellido" required>
+                </div>
+                <div class="input-group mb-3">
+                  <input type="text" class="form-control" name="direccion" [(ngModel)]="profesor.direccion"
+                    placeholder="Direccion" required>
+                </div>
+                <div class="input-group mb-3">
+                  <input type="text" class="form-control" name="cedula" [(ngModel)]="profesor.cedula"
+                    placeholder="Cedula" required>
+                </div>
+                <div class="input-group mb-3">
+                  <select id="miComboBox" name="select" class="form-control" [(ngModel)]="profesor.genero">
+                    <option value="" disabled selected>Genero</option>
+                    <option value="Masculino">Masculino</option>
+                    <option value="Femenino">Femenino</option>
+                    <option value="Otro">Otro</option>
+                  </select>
+                </div>
+                <div class="input-group mb-3">
+                  <input type="date" id="start" class="form-control" name="fecha"
+                    [(ngModel)]="profesor.fecha_nacimiento" name="trip-start" value="1990-07-12" min="1950-01-01"
+                    max="2023-12-31" />
+                </div>
+                <div class="input-group mb-3">
+                  <input type="text" class="form-control" name="email" [(ngModel)]="profesor.correo" placeholder="Email"
+                    required>
+                </div>
+                <div class="input-group mb-3">
+                  <input type="text" class="form-control" name="area" [(ngModel)]="profesor.area" placeholder="Area"
+                    required>
+                </div>
+                <div class="modal-footer">
+                  <button type="submit" class="btn btn-success" (click)="update()" *ngIf="profesor.id_profesor"
+                    data-dismiss="modal"><i class="fa fa-save"></i>Guardar</button>
+                  <button type="submit" class="btn btn-success" (click)="create()" *ngIf="!profesor.id_profesor"
+                    data-dismiss="modal"><i class="fa fa-save"></i>Guardar</button>
+                  <button type="button" class="btn2 btn-secondary" data-dismiss="modal"> <i
+                      class="fa fa-times-circle"></i>Cancelar</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
+    <div class="box">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </div>
+</body>
