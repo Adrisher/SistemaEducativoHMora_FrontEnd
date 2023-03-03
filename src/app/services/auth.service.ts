@@ -17,5 +17,15 @@ export class AuthService {
     return this.http.post<any>(url, null);
   }
 
+  // createUser(user: Usuario): Observable<Estudiante> {{
+  //   return this.httpClient.post<Estudiante>(this.baseUrl + '/crear', estudiante)
+  //     .pipe(
+  //       catchError((error) => {
+  //         console.error(error);
+  //         throw error;
+  //       })
+  //     );
+  // }
+
 
 }

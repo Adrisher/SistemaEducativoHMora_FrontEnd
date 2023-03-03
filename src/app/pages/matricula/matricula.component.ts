@@ -10,6 +10,8 @@ import { CursoService } from 'src/app/services/curso.service';
 import { EstudianteService } from 'src/app/services/estudiante.service';
 import { RepresentanteService } from 'src/app/services/representante.service';
 import { MatriculaService } from 'src/app/services/matricula.service';
+import { Periodo } from '../periodo/periodo';
+import { PeriodoService } from 'src/app/services/periodo.service';
 
 @Component({
   selector: 'app-matricula',
@@ -20,24 +22,31 @@ export class MatriculaComponent {
 
   cursos: Curso[] = [];
   curso: Curso = new Curso;
-  estudiante: Estudiante = new Estudiante;
-  matricula: Matricula = new Matricula;
-  representante: Representante = new Representante;
-
-
   selectedCurso: string;
   selectedParalelo: string;
   paralelos: string[];
+
+  estudiante: Estudiante = new Estudiante;
+  matricula: Matricula = new Matricula;
+  representante: Representante = new Representante;
+  
+  periodos: Periodo[] = [];
+  periodo: Periodo = new Periodo;
+  selectedPeriodo: string;
+  
+
+  
 
 
 
   constructor(private _CargarScripts: CargarScriptsService, private router: Router,
     private estudianteService: EstudianteService, private representanteService: RepresentanteService,
-    private cursoService: CursoService, private matriculaService: MatriculaService) {
+    private cursoService: CursoService, private matriculaService: MatriculaService, private periodoService: PeriodoService) {
     _CargarScripts.funciones(["matricula"]);
   }
 
   ngOnInit(): void {
+    this.cargarPeriodos();
   }
 
 
@@ -55,7 +64,7 @@ export class MatriculaComponent {
               console.log(result);
             })
           if (!data) {
-
+              
             
           }
           this.limpiarCampos();
@@ -63,22 +72,20 @@ export class MatriculaComponent {
       })
   }
 
-  // cargarParalelos() {
-  //   this.cursoService.buscarByCurso(this.selectedCurso).subscribe(
-  //     (response) => {
-  //       this.paralelos = response;
-  //     },
-  //     (error) => {
-  //       console.log(error);
-  //     }
-  //   );
-  // }
 
   cargarParalelos() {
     this.cursoService.buscarByCurso(this.selectedCurso).subscribe(
       cursos => this.cursos = cursos
     );
   }
+
+  
+  cargarPeriodos(){
+    this.periodoService.getPeriodos().subscribe( 
+        periodos => this.periodos = periodos
+    );
+  }
+  
 
 
 

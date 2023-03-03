@@ -8,22 +8,15 @@ import { Matricula } from '../pages/matricula/Matricula';
 })
 export class MatriculaService {
   private url: string = "http://localhost:8080/hmora/matricula";
-  
+
   constructor(private httpClient: HttpClient) { }
 
   //listar matricula
   public getAllMatricula(): Observable<any> {
-    return this.httpClient.get(this.url + "/lista_Matriculas");
+    return this.httpClient.get(this.url + "/listar");
   }
-  
-  // //Crear Matricula
-  // public saveMatricula(matricula: any): Observable<any> {
-  //   return this.httpClient.post(this.url + "/matricular", matricula);
-  // }
 
-  
-
-create(matricula: Matricula): Observable<Matricula> {
-  return this.httpClient.post<Matricula>(this.url + 'guardar', matricula);
-}
+  create(matricula: Matricula): Observable<Matricula> {
+    return this.httpClient.post<Matricula>(this.url + '/crear', matricula);
+  }
 }

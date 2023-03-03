@@ -14,7 +14,7 @@ export class SidebarService {
       { titulo: "Matrículas", url: "matricula", icono: 'far fa-file-alt' },
       { titulo: "Cursos", url: "curso", icono: 'fas fa-building' },
       { titulo: "Estudiantes", url: "estudiante", icono: 'fas fa-graduation-cap' },
-      { titulo: "Periodo", url: "periodo", icono: 'fa-solid fa-timeline-arrow' } 
+      { titulo: "Periodo", url: "periodo", icono: 'far fa-calendar-alt' } 
     ]
   }]
 
