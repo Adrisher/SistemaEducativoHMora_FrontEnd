@@ -55,8 +55,8 @@
                 </div>
 
                 <div class="col-sm-6 form-group">
-                    <label for="zip">Correo</label>
-                    <input type="zip" class="form-control" type="email" placeholder="Correo Electrónico" name="correo"
+                    <label for="email">Correo</label>
+                    <input type="email" class="form-control" type="email" placeholder="Correo Electrónico" name="correo"
                         [(ngModel)]="representante.correo" required>
                 </div>
                 <div class="col-sm-6 form-group">
@@ -137,8 +137,8 @@
                 </div>
 
                 <div class="col-sm-6 form-group">
-                    <label for="zip">Correo</label>
-                    <input type="zip" class="form-control" type="email" placeholder="Correo Electrónico" name="correo"
+                    <label for="email">Correo</label>
+                    <input type="email" class="form-control" type="email" placeholder="Correo Electrónico" name="correo"
                         [(ngModel)]="estudiante.correo" required>
                 </div>
                 <div class="col-sm-6 form-group">
@@ -150,38 +150,38 @@
                 <div class="col-sm-12 mx-t3 mb-4">
                     <h2 class="text-center text-info">Curso</h2>
                 </div>
-                    <div class="col-sm-4 form-group" >
-                        <label for="ciclo"> Curso</label>
-                        <select id="ciclo" class="form-control" name="ciclo" [(ngModel)]="curso.ciclo">
-                            <option *ngFor="let ciclo of ciclos" [value]="ciclo.value">
-                                {{ciclo.text}}</option>
-                        </select>
-                    </div>
-                    <div class="col-sm-4 form-group" >
-                        
-                        <label for="ciclo"> Paralelo</label>
-                        <select id="ciclo" class="form-control" name="ciclo" [(ngModel)]="curso.paralelo">
-                            <option *ngFor="let paralelo of paralelos" [value]="paralelo.value">
-                                {{paralelo.text}}</option>
-                        </select>
-                    </div>
-                    <div class="col-sm-4 form-group">
-                        <label for="tel">Número de cupo</label>
-                        <input type="number" name="cupo" class="form-control" placeholder="# Cupos"
-                            name="cupo" maxlength="2" [(ngModel)]="curso.cupo"
-                            onkeypress='return event.charCode >= 48 && event.charCode <= 57' required>
-                    </div>
-                    <div class="col-sm-12 mx-t3 mb-4">
-                        <h2 class="text-center text-info">Detalle Matricula</h2>
-                    </div>
-                    <div class="col-sm-12 form-group">
-                        <label>Observaciones</label>
-                        <textarea class="multisteps-form__textarea form-control"
-                            placeholder="Observaciones"></textarea>
-                    </div>
-                    <button class="btn btn-success ml-auto" type="button" title="xd"
-                                                (click)="registrarMatricula()"><i class="fa fa-save"></i> Guardar
-                                            </button>
+                <div class="col-sm-6 form-group">
+                    <label for="ciclo">Curso</label>
+                    <select id="ciclo" class="form-control" name="ciclo" [(ngModel)]="selectedCurso"
+                        (change)="cargarParalelos()">
+                        <option value="PRIMERO">PRIMERO</option>
+                        <option value="SEGUNDO">SEGUNDO</option>
+                        <option value="TERCERO">TERCERO</option>
+                        <option value="CUARTO">CUARTO</option>
+                        <option value="QUINTO">QUINTO</option>
+                        <option value="SEXTO">SEXTO</option>
+                        <option value="SÉPTIMO">SÉPTIMO</option>
+                        <option value="OCTAVO">OCTAVO</option>
+                        <option value="NOVENO">NOVENO</option>
+                        <option value="DECIMO">DECIMO</option>
+                    </select>
+                </div>
+                <div class="col-sm-6 form-group">
+                    <label for="paralelo">Paralelo</label>
+                    <select id="paralelo" class="form-control" name="paralelo" [(ngModel)]="selectedParalelo">
+                        <option *ngFor="let curso of cursos" [value]="curso">{{ curso.paralelo }}</option>
+                    </select>
+                </div>
+                <div class="col-sm-12 mx-t3 mb-4">
+                    <h2 class="text-center text-info">Detalle Matricula</h2>
+                </div>
+                <div class="col-sm-12 form-group">
+                    <label>Observaciones</label>
+                    <textarea class="multisteps-form__textarea form-control" placeholder="Observaciones"></textarea>
+                </div>
+                <button class="btn btn-success ml-auto" type="button" title="xd" (click)="registrarMatricula()"><i
+                        class="fa fa-save"></i> Guardar
+                </button>
             </form>
         </div>
         <div class="box">

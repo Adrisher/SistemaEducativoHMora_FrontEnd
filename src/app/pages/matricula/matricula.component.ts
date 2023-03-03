@@ -10,9 +10,6 @@ import { CursoService } from 'src/app/services/curso.service';
 import { EstudianteService } from 'src/app/services/estudiante.service';
 import { RepresentanteService } from 'src/app/services/representante.service';
 import { MatriculaService } from 'src/app/services/matricula.service';
-import { Ciclo } from '../curso/Ciclo.enum';
-import { Paralelo } from '../curso/Paralelo.enum';
-import { mergeMap } from 'rxjs';
 
 @Component({
   selector: 'app-matricula',
@@ -28,6 +25,11 @@ export class MatriculaComponent {
   representante: Representante = new Representante;
 
 
+  selectedCurso: string;
+  selectedParalelo: string;
+  paralelos: string[];
+
+
 
   constructor(private _CargarScripts: CargarScriptsService, private router: Router,
     private estudianteService: EstudianteService, private representanteService: RepresentanteService,
@@ -35,21 +37,7 @@ export class MatriculaComponent {
     _CargarScripts.funciones(["matricula"]);
   }
 
-  ciclos: any[] = [];
-  paralelos: any[] = [];
   ngOnInit(): void {
-    
-    for (let item in Ciclo) {
-      if (isNaN(Number(item))) {
-        this.ciclos.push({ text: item, value: Ciclo[item] });
-      }
-    }
-    for (let item in Paralelo) {
-      if (isNaN(Number(item))) {
-        this.paralelos.push({ text: item, value: Paralelo[item] });
-      }
-    }
-    
   }
 
 
@@ -66,12 +54,30 @@ export class MatriculaComponent {
             result => {
               console.log(result);
             })
-            if(!data){
-                
-            }
-            this.limpiarCampos();
+          if (!data) {
+
+            
+          }
+          this.limpiarCampos();
         }
       })
+  }
+
+  // cargarParalelos() {
+  //   this.cursoService.buscarByCurso(this.selectedCurso).subscribe(
+  //     (response) => {
+  //       this.paralelos = response;
+  //     },
+  //     (error) => {
+  //       console.log(error);
+  //     }
+  //   );
+  // }
+
+  cargarParalelos() {
+    this.cursoService.buscarByCurso(this.selectedCurso).subscribe(
+      cursos => this.cursos = cursos
+    );
   }
 
 

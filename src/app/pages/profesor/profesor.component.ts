@@ -74,11 +74,10 @@ export class ProfesorComponent {
   }
 
   public create():void{
-    console.log('se ha hecho un click')
     this.profesorService.create(this.profesor).subscribe(
       response => {
+        this.get();
         Swal.fire('Profesor guardado',`Profesor ${response.nombre} guardado con exito`,'success')
-
       }
     )
   }
@@ -93,7 +92,6 @@ export class ProfesorComponent {
   }
 
   deleteRecord(id: number) {
-    console.log('Se ha hecho clic en Delete')
     this.profesorService.deleteMyRecord(id)
       .subscribe(() => {
         this.profesores = this.profesores.filter(record => record.id_profesor !== id);

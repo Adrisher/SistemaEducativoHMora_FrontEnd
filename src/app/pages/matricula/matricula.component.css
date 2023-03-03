@@ -94,7 +94,7 @@ body {
 
 /* Style the container for the form */
 .container {
-    max-width: 1200px;
+    max-width: 1400px;
     margin: 50px auto;
     padding: 20px;
     border: 2px solid #060606;
@@ -122,7 +122,7 @@ label {
     font-weight: 400;
     line-height: 1.5;
     color: #495057;
-    background-color: #fff;
+    background-color: transparent;
     background-clip: padding-box;
     border: 1px solid #ced4da;
     border-radius: 0.25rem;
