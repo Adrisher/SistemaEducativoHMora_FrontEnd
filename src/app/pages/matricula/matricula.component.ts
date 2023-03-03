@@ -58,27 +58,42 @@ export class MatriculaComponent {
       if (data) {
         this.representante.id_representante = data.id_representante;
         console.log(data);
-        this.usuario.nombreUsuario = this.estudiante.cedula;
-        this.usuario.contraseña = this.estudiante.cedula;
-        this.userService.createUser(this.usuario).subscribe(userResponse => {
-          console.log(userResponse);
-          if (userResponse) {
-            this.estudiante.representante = this.representante;
-            this.estudiante.usuario = userResponse;
-            this.estudianteService.createEstudiante(this.estudiante).subscribe(estudianteResponse => {
-              console.log(estudianteResponse);
-              if (estudianteResponse) {
-                this.matricula.curso.id_curso = this.curso.id_curso;
+
+        this.estudiante.representante = this.representante;
+        this.estudianteService.createEstudiante(this.estudiante).subscribe(
+          response => {
+            console.log(response);
+            
+            if(response) {
+              this.usuario.nombreUsuario = response.cedula
+              this.usuario.contraseña = response.cedula
+
+              this.userService.createUser(this.usuario).subscribe(
+                usu => {
+                  console.log(usu);
+
+                  if(usu) {
+                    
+                    this.matricula.curso = this.curso;
                 this.matricula.periodo.id_periodo = this.periodo.id_periodo;
-                this.matricula.estudiante.id_estudiante = estudianteResponse.id_estudiante;
+                this.matricula.estudiante.id_estudiante = this.estudiante.id_estudiante;
+                this.matricula.periodo.id_periodo = this.periodo.id_periodo
                 this.matriculaService.create(this.matricula).subscribe(matriculaResponse => {
                   console.log(matriculaResponse);
                   this.limpiarCampos();
                 });
-              }
-            });
+                  }
+                }
+
+                
+              )
+
+            }
+
           }
-        });
+        )
+
+
       }
     });
   }
