@@ -52,5 +52,11 @@ export class CursoService {
   actualizarCurso(curso: Curso): Observable<void> {
     return this.httpClient.put<void>(`${this.baseUrl}/actualizar`, curso);
   }
+
+  search(filtro: string): Observable<Curso[]> {
+    const url = `${this.baseUrl}/buscar/?filtro=${filtro}`;
+    return this.httpClient.get<Curso[]>(url);
+  }
+
 }
   

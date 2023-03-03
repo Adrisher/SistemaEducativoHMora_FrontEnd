@@ -11,6 +11,7 @@ import Swal from 'sweetalert2';
     styleUrls: ['./curso.component.css']
 })
 export class CursoComponent {
+
     public cursos: any[] = [];
     public curso = new Curso();
     editando: boolean = false;
@@ -19,6 +20,7 @@ export class CursoComponent {
     ngOnInit(): void {
         this.listarCursos();
     }
+
     listarCursos(): void {
         this.cursoService.listarCursos().subscribe(
             (data) => {
@@ -30,6 +32,7 @@ export class CursoComponent {
             }
         );
     }
+
     crearCurso(): void {
         this.cursoService.createCurso(this.curso)
             .subscribe(
@@ -73,4 +76,15 @@ export class CursoComponent {
         this.curso.cupo = 0;
         this.curso.paralelo = null;
     }
+
+    search(event: Event) {
+        const inputElement = event.target as HTMLInputElement;
+        const inputValue = inputElement.value;
+        this.cursoService.search(inputValue)
+          .subscribe(response => {
+            this.cursos = response;
+            console.log(response)
+          });
+      }
+
 }

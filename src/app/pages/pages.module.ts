@@ -11,6 +11,7 @@ import { CursoComponent } from './curso/curso.component';
 import { EstudianteComponent } from './estudiante/estudiante.component';
 import { VerMatriculaComponent } from './matricula/ver-matricula/ver-matricula.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { PeriodoComponent } from './periodo/periodo.component';
 
 
 
@@ -23,7 +24,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     PagesComponent,
     CursoComponent,
     EstudianteComponent,
-    VerMatriculaComponent
+    VerMatriculaComponent,
+    PeriodoComponent
   ],
   imports: [
     CommonModule,
@@ -38,7 +40,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MateriaComponent,
     EstudianteComponent,
     MatriculaComponent,
-    VerMatriculaComponent
+    VerMatriculaComponent,
+    PeriodoComponent
   ]
 })
 export class PagesModule { }

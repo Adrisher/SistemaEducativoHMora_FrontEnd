@@ -46,5 +46,11 @@ export class EstudianteService {
   }
 
 
+  //Buscar solo uno por cedula
+  buscarEstu(cedula: string): Observable<Estudiante> {
+    const url = `${this.baseUrl}/${cedula}`;
+    return this.httpClient.get<Estudiante>(url);
+  }
+
 
 }
